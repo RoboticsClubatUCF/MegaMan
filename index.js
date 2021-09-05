@@ -12,26 +12,15 @@ client.commands = new Collection()
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
 for (const file of commandFiles) {
   const command = await import(`./commands/${file}`)
-	client.commands.set(command.default.builder.name, command.default)
+  client.commands.set(command.default.builder.name, command.default)
 }
 
-client.once('ready', () => {
-  console.log('Ready!')
-})
-
-client.on('interactionCreate', async interaction => {
-  if (!interaction.isCommand()) return
-
-	const command = client.commands.get(interaction.commandName)
-
-	if (!command) return
-
-	try {
-		await command.execute(interaction)
-	} catch (error) {
-		console.error(error)
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true })
-	}
-})
+// setup events
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'))
+for (const file of eventFiles) {
+  const event = await import(`./events/${file}`)
+  if (event.default.once) client.once(event.default.name, (...args) => event.default.execute(...args))
+  else client.on(event.default.name, (...args) => event.default.execute(...args))
+}
 
 client.login(process.env.TOKEN)
