@@ -9,7 +9,7 @@ const commands = []
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
 for (const file of commandFiles) {
   const command = await import(`./commands/${file}`)
-	commands.push(command.default.data.toJSON())
+	commands.push(command.default.builder.toJSON())
 }
 
 (async () => {
@@ -17,7 +17,7 @@ for (const file of commandFiles) {
   try {
     await rest.put(
       Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
-      { body: commands.default },
+      { body: commands },
     )
 
     console.log('Successfully registered application commands.')
