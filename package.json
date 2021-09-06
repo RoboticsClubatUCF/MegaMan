@@ -1,23 +1,23 @@
 {
   "name": "megaman",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Discord Bot for The Robotics Club of Central Florida",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RoboticsClubatUCF/megaman.git"
+    "url": "git+https://github.com/RoboticsClubatUCF/MegaMan.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Vijay Stroup",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RoboticsClubatUCF/megaman/issues"
+    "url": "https://github.com/RoboticsClubatUCF/MegaMan/issues"
   },
-  "homepage": "https://github.com/RoboticsClubatUCF/megaman#readme",
+  "homepage": "https://github.com/RoboticsClubatUCF/MegaMan#readme",
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "^0.1.0-canary.0",
@@ -26,10 +26,6 @@
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.15.4",
-    "@babel/core": "^7.15.5",
-    "@babel/node": "^7.15.4",
-    "@babel/preset-env": "^7.15.4",
     "eslint": "^7.32.0"
   }
 }
