@@ -89,3 +89,6 @@ Then you can run the bot in dev mode:
 ```
 npm run dev
 ```
+
+When you feel you are done with your feature, make a pull request to the main 
+branch and it will be reviewed, tested, and merged.
