@@ -15,8 +15,8 @@ const options = [
 ]
 
 const rolesMap = {
-  agv: 'Professor',
-  spiderbot: 'Admin'
+  agv: 'AGV Team',
+  spiderbot: 'SpiderBot Team'
 }
 
 const JoinTeam = {
@@ -24,6 +24,12 @@ const JoinTeam = {
     .setName('jointeam')
     .setDescription('Join a Team of The Robotics Club.'),
   async execute(interaction) {
+    // check if member role
+    if (!interaction.member.roles.cache.some(role => role.name === 'Members')) {
+      await interaction.reply({ content: 'You must be a Member to use this command.', ephemeral: true })
+      return
+    }
+
     const row = new MessageActionRow()
       .addComponents(
         new MessageSelectMenu()
@@ -33,7 +39,7 @@ const JoinTeam = {
           .addOptions(options)
       )
 
-    await interaction.reply({ content: 'Select teams to join.', components: [row] })
+    await interaction.reply({ content: 'Select Team(s) to join.', components: [row] })
   },
   async onSelect(interaction) {
     const roles = interaction.guild.roles.cache
@@ -43,7 +49,7 @@ const JoinTeam = {
       await interaction.member.roles.add(role)
     }
 
-    await interaction.reply(`**${interaction.member.displayName}** has joined team(s): ${interaction.values.join(', ')}`)
+    await interaction.update({ content: `**${interaction.member.displayName}** has joined team(s): ${interaction.values.join(', ')}`, components: [] })
   }
 }
 
