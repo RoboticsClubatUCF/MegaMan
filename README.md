@@ -23,7 +23,7 @@ will have to research on their own on how to get the required prerequisite softw
 
 ### Environment
 - [git](https://nodejs.org/en/)
-- [Node.js](https://nodejs.org/en/)
+- [Node.js v16.6.0 or higher](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
 
 It is recommended that you use a version manager with NodeJS as it is updated 
