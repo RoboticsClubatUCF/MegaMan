@@ -8,6 +8,11 @@ const options = [
     value: 'agv'
   },
   {
+    label: 'Discord',
+    description: 'Discord Team: Mega Man',
+    value: 'discord'
+  },
+  {
     label: 'Spider Bot',
     description: 'Spider Bot Team: Spider-Bot/Demobot',
     value: 'spiderbot'
@@ -16,7 +21,8 @@ const options = [
 
 const rolesMap = {
   agv: 'AGV Team',
-  spiderbot: 'SpiderBot Team'
+  spiderbot: 'SpiderBot Team',
+  discord: 'Discord Team'
 }
 
 const JoinTeam = {
@@ -36,7 +42,7 @@ const JoinTeam = {
         new MessageSelectMenu()
           .setCustomId('JoinTeam')
           .setPlaceholder('Select teams to join.')
-          .setMaxValues(2)
+          .setMaxValues(options.length)
           .addOptions(options)
       )
 
