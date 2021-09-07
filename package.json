@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
     "dev": "nodemon .",
-    "register": "node deployCommands.js"
+    "register": "node deployCommands.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
