@@ -23,6 +23,7 @@ const JoinTeam = {
   builder: new SlashCommandBuilder()
     .setName('jointeam')
     .setDescription('Join a Team of The Robotics Club.'),
+  channels: ['bot-cmds'],
   async execute(interaction) {
     // check if member role
     if (!interaction.member.roles.cache.some(role => role.name === 'Members')) {
@@ -49,7 +50,7 @@ const JoinTeam = {
       await interaction.member.roles.add(role)
     }
 
-    await interaction.update({ content: `**${interaction.member.displayName}** has joined team(s): ${interaction.values.join(', ')}`, components: [] })
+    await interaction.update({ content: `**${interaction.member.displayName}** has joined team(s): ${interaction.values.join(', ')}.`, components: [] })
   }
 }
 
