@@ -5,13 +5,19 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RoboticsClubatUCF/MegaMan.git"
   },
-  "keywords": [],
+  "keywords": [
+    "discord",
+    "bot",
+    "robotics"
+  ],
   "author": "Vijay Stroup",
   "license": "MIT",
   "bugs": {
@@ -26,6 +32,7 @@
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.12"
   }
 }
