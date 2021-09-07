@@ -6,6 +6,12 @@ const InteractionCreate = {
       const command = interaction.client.commands.get(interaction.commandName)
       if (!command) return
 
+      // check if valid channel
+      if (command.channels && !command.channels.includes(interaction.channel.name)) {
+        await interaction.reply({ content: `You can only use this command in ${command.channels.join(', ')}.`, ephemeral: true })
+        return
+      }
+
       try {
         await command.execute(interaction)
       } catch (error) {
