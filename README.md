@@ -55,6 +55,7 @@ resources channel in the Discord Team category.  Create a new server from this
 template; it will come with all the channels and roles/permissions.
 11. Now from step 9, copy and paste the URL in your web browser and invite the 
 application you just made to the dev server you just made.
+12. In your dev server, make sure the new role added for the Bot is moved to the top of the roles so it has access to assigning and removing all roles.
 
 ### Start
 Before copying the following commands, it is highly recommended you use git with
