@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Discord Bot for The Robotics Club of Central Florida",
   "type": "module",
+  "engines": {
+    "node": "16.8.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
