@@ -1,20 +1,19 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 
-const NMember = {
+const NMembers = {
   builder: new SlashCommandBuilder()
-    .setName('nmember')
-    .setDescription('Returns the number of members on the server!'),
+    .setName('nmembers')
+    .setDescription('Returns the number of members on the server.'),
   async execute(interaction) {
-
-    const role = interaction.guild.roles.cache.find(role => role.name === 'Members');
+    const role = interaction.guild.roles.cache.find(role => role.name === 'Members')
 
     if(!role)
-        return await interaction.reply('The members role does not exist');
+      return await interaction.reply('The members role does not exist')
 
-    const total = role.members.size;
+    const total = role.members.size
 
-    await interaction.reply(`There are currently ${total} members!`);
+    await interaction.reply(`There are currently ${total} members!`)
   }
 }
 
-export default NMember
+export default NMembers
