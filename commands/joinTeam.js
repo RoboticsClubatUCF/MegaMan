@@ -33,12 +33,6 @@ const JoinTeam = {
   channels: ['bot-cmds'],
   roles: ['Members'],
   async execute(interaction) {
-    // check if member role
-    if (!interaction.member.roles.cache.some(role => role.name === 'Members')) {
-      await interaction.reply({ content: 'You must be a Member to use this command.', ephemeral: true })
-      return
-    }
-
     const row = new MessageActionRow()
       .addComponents(
         new MessageSelectMenu()
