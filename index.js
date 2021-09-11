@@ -5,7 +5,7 @@ import { Client, Collection, Intents } from 'discord.js'
 // load envs
 config()
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS] })
 
 // setup slash commands
 client.commands = new Collection()

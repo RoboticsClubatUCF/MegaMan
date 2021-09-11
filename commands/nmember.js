@@ -5,18 +5,14 @@ const NMembers = {
     .setName('nmembers')
     .setDescription('Returns the number of members on the server.'),
   async execute(interaction) {
-    const role = interaction.guild.roles.cache.find(role => role.name === 'Members')
-
+    const role = await interaction.guild.roles.cache.find(role => role.name === 'Members')
     if(!role)
       return await interaction.reply('The members role does not exist')
 
-    console.log(role.members)
+    const members = await interaction.guild.members.fetch()
+    const filtered = members.filter(member => member.roles.cache.find(r => r === role))
 
-    const total = role.members.size
-
-    console.log('total', total)
-
-    await interaction.reply(`There are currently ${total} members!`)
+    await interaction.reply(`There are currently ${filtered.size} members!`)
   }
 }
 
