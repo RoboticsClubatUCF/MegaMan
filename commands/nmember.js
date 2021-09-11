@@ -10,7 +10,11 @@ const NMembers = {
     if(!role)
       return await interaction.reply('The members role does not exist')
 
+    console.log(role.members)
+
     const total = role.members.size
+
+    console.log('total', total)
 
     await interaction.reply(`There are currently ${total} members!`)
   }
