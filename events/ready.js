@@ -41,7 +41,7 @@ const Ready = {
           })
         }
 
-        await cmd[1].permissions.add({ permissions });
+        await cmd[1].permissions.add({ permissions })
       }
     }
 
