@@ -28,8 +28,10 @@ const rolesMap = {
 const JoinTeam = {
   builder: new SlashCommandBuilder()
     .setName('jointeam')
-    .setDescription('Join a Team of The Robotics Club.'),
+    .setDescription('Join a Team of The Robotics Club.')
+    .setDefaultPermission(false),
   channels: ['bot-cmds'],
+  roles: ['Members'],
   async execute(interaction) {
     // check if member role
     if (!interaction.member.roles.cache.some(role => role.name === 'Members')) {
