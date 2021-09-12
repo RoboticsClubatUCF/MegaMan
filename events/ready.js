@@ -1,21 +1,7 @@
-import fs from 'fs'
 import { config } from 'dotenv'
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+import getCommands from '../utils/getCommands.js'
 
 config()
-
-const getCommands = async () => {
-  const commands = {}
-  const commandFiles = fs.readdirSync(`${__dirname}/../commands`).filter(file => file.endsWith('.js'))
-  for (const file of commandFiles) {
-    const command = await import(`${__dirname}/../commands/${file}`)
-    commands[command.default.builder.name] = command.default
-  }
-  return commands
-}
 
 const Ready = {
   name: 'ready',
