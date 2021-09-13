@@ -1,5 +1,7 @@
 import { config } from 'dotenv'
 import getCommands from '../utils/getCommands.js'
+import { populateRoles } from '../utils/roles.js'
+import { populateChannels } from '../utils/channels.js'
 
 config()
 
@@ -14,7 +16,15 @@ const Ready = {
     const commands = await getCommands()
     const guildCommands = await guild.commands.fetch()
     const guildRoles = await guild.roles.cache
+    const guildChannels = await guild.channels.cache
 
+    // populate roles
+    await populateRoles(guildRoles)
+
+    // populate channels
+    await populateChannels(guildChannels)
+
+    // correct command permissions
     for (const cmd of guildCommands) {
       if (commands[cmd[1].name].roles) {
         const permissions = []
