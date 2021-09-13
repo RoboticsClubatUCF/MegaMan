@@ -5,7 +5,7 @@ import { Client, Collection, Intents } from 'discord.js'
 // load envs
 config()
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS] })
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES] })
 
 const setupCommands = async () => {
   client.commands = new Collection()
