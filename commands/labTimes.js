@@ -6,7 +6,8 @@ const labTimesEmbed = new MessageEmbed()
   .setTitle('Lab Times')
   .setDescription('Below you can find when our lab will be open. Officers specialties are listed as well ' + 
     'but that is not the only activites that are allowed on those days. You are allowed to go to the lab ' +
-    'when ever it is open and work on any project you\'d like.')
+    'when ever it is open and work on any project you\'d like.\n\nOur lab is located in Research Park: ' + 
+    '[3100 Technology Pkwy, Orlando, FL 32826 Partnership II](https://goo.gl/maps/p1Bc37RQEUhHn4U7A)')
   .setThumbnail('https://i.imgur.com/udziL5c.png')
   .addFields(
     { name: 'Datetime', value: 'Monday 2:30-6:30pm', inline: true },
