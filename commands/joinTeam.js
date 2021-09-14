@@ -13,6 +13,11 @@ const options = [
     value: 'discord'
   },
   {
+    label: 'Line Tracker',
+    description: 'Line Tracker Team: Line Tracker Robots',
+    value: 'linetracker'
+  },
+  {
     label: 'Spider Bot',
     description: 'Spider Bot Team: Spider-Bot/Demobot',
     value: 'spiderbot'
@@ -22,7 +27,8 @@ const options = [
 const rolesMap = {
   agv: 'AGV Team',
   spiderbot: 'SpiderBot Team',
-  discord: 'Discord Team'
+  discord: 'Discord Team',
+  linetracker: 'Line Tracking Team'
 }
 
 const JoinTeam = {
