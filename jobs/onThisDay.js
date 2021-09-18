@@ -1,6 +1,5 @@
 import axios from 'axios'
-// import { MessageActionRow, MessageButton, MessageEmbed } from 'discord.js' // for future use
-import { MessageEmbed } from 'discord.js'
+import { MessageActionRow, MessageButton, MessageEmbed } from 'discord.js'
 
 const urlTemplate = 'https://byabbe.se/on-this-day/MONTH/DAY/events.json'
 
@@ -25,26 +24,20 @@ const OnThisDay = {
       .setTitle(`${d.getUTCMonth() + 1}/${d.getUTCDate()}/${event.year}`)
       .setAuthor('On This Day')
       .setThumbnail('https://i.imgur.com/udziL5c.png')
-      .setDescription(`${event.description}\n\n**Wikipedia Links:**`)
+      .setDescription(event.description)
       .setTimestamp()
 
-    for (const wiki of event.wikipedia)
-      onThisDayEmbed.addField(wiki.title, `[Wiki](${wiki.wikipedia})`, true)
-
-    // future use if normal message sends allow buttons
-    /*
     const links = new MessageActionRow()
     for (const wiki of event.wikipedia) {
       links.addComponents(
         new MessageButton()
-          .setCustomId(wiki.title)
           .setLabel(wiki.title)
-          .setStyle('LINK'),
+          .setStyle('LINK')
+          .setURL(wiki.wikipedia)
       )
     }
-    */
 
-    channel.send({ embeds: [onThisDayEmbed] })
+    await channel.send({ embeds: [onThisDayEmbed], components: [links] })
   }
 }
 
