@@ -23,8 +23,8 @@ const labTimesEmbed = new MessageEmbed()
     { name: 'Specialty', value: 'Mech ENG', inline: true },
 
     { name: 'Datetime', value: 'Thursday 5:00-9:00pm', inline: true },
-    { name: 'Officer', value: 'Marc', inline: true },
-    { name: 'Specialty', value: 'Computer ENG/ROS/Mech ENG', inline: true },
+    { name: 'Officer', value: 'Marc, Robert', inline: true },
+    { name: 'Specialty', value: 'Computer ENG/ROS/Mech ENG/Software', inline: true },
   )
   .setTimestamp()
 
