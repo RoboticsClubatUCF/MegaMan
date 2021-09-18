@@ -5,7 +5,7 @@ import { MessageEmbed } from 'discord.js'
 const urlTemplate = 'https://byabbe.se/on-this-day/MONTH/DAY/events.json'
 
 const OnThisDay = {
-  cronPattern: '* * * * * *',
+  cronPattern: '0 12 * * *', // every day at 12:00
   channel: 'random',
   async execute(channel) {
     const d = new Date()
