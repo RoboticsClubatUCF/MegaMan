@@ -2,6 +2,7 @@ import { config } from 'dotenv'
 import getCommands from '../utils/getCommands.js'
 import { populateRoles } from '../utils/roles.js'
 import { populateChannels } from '../utils/channels.js'
+import StartJobs from '../utils/startJobs.js'
 
 config()
 
@@ -40,6 +41,9 @@ const Ready = {
         await cmd[1].permissions.add({ permissions })
       }
     }
+
+    // start jobs
+    await StartJobs(guild)
 
     console.log(`Ready! Logged in as ${client.user.tag}`)
   }
