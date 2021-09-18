@@ -1,13 +1,8 @@
 import axios from 'axios'
+// import { MessageActionRow, MessageButton, MessageEmbed } from 'discord.js' // for future use
 import { MessageEmbed } from 'discord.js'
 
 const urlTemplate = 'https://byabbe.se/on-this-day/MONTH/DAY/events.json'
-
-const onThisDayEmbed = new MessageEmbed()
-  .setColor('#4990E2')
-  .setAuthor('On This Day')
-  .setThumbnail('https://i.imgur.com/udziL5c.png')
-  .setTimestamp()
 
 const OnThisDay = {
   cronPattern: '* * * * * *',
@@ -25,9 +20,29 @@ const OnThisDay = {
     // select random event from list
     const event = res.data.events[Math.floor(Math.random() * res.data.events.length)]
 
-    onThisDayEmbed
-      .setDescription(event.description)
+    const onThisDayEmbed = new MessageEmbed()
+      .setColor('#4990E2')
       .setTitle(`${d.getUTCMonth() + 1}/${d.getUTCDate()}/${event.year}`)
+      .setAuthor('On This Day')
+      .setThumbnail('https://i.imgur.com/udziL5c.png')
+      .setDescription(`${event.description}\n\n**Wikipedia Links:**`)
+      .setTimestamp()
+
+    for (const wiki of event.wikipedia)
+      onThisDayEmbed.addField(wiki.title, `[Wiki](${wiki.wikipedia})`, true)
+
+    // future use if normal message sends allow buttons
+    /*
+    const links = new MessageActionRow()
+    for (const wiki of event.wikipedia) {
+      links.addComponents(
+        new MessageButton()
+          .setCustomId(wiki.title)
+          .setLabel(wiki.title)
+          .setStyle('LINK'),
+      )
+    }
+    */
 
     channel.send({ embeds: [onThisDayEmbed] })
   }
