@@ -6,13 +6,12 @@ const TeamSizes = {
     .setDescription('Returns the number of members on each team.'),
   async execute(interaction) {
     const roleM = await interaction.guild.roles.fetch()
-    const roles = await roleM.filter(role => role.name.endsWith('Team'))
+    const roles = roleM.filter(role => role.name.endsWith('Team'))
 
-    const data = {}
-    roles.forEach(role => data[role.name] = role.members.size)
-    console.log(data)
+    let reply = ''
+    roles.forEach(role => reply += `\`\`\`${role.name}: ${role.members.size}\`\`\``)
 
-    // await interaction.reply(`There are currently ${filtered.size} members!`)
+    await interaction.reply(reply)
   }
 }
 
