@@ -37,6 +37,8 @@ const rolesMap = {
   pacman: 'Pac-Man Team'
 }
 
+const rolesSet = new Set(Object.keys(rolesMap))
+
 const Team = {
   builder: new SlashCommandBuilder()
     .setName('team')
@@ -68,13 +70,22 @@ const Team = {
   },
   async onSelect(interaction) {
     const roles = interaction.guild.roles.cache
+    const valueSet = new Set(interaction.values)
+    const notSelected = new Set([...rolesSet].filter(x => !valueSet.has(x)))
 
-    for (const val of interaction.values) {
-      const role = roles.find(role => role.name === rolesMap[val])
+    // roles to add
+    valueSet.forEach(async v => {
+      const role = roles.find(role => role.name === rolesMap[v])
       await interaction.member.roles.add(role)
-    }
+    })
 
-    await interaction.update({ content: `**${interaction.member.displayName}** has joined team(s): ${interaction.values.join(', ')}.`, components: [] })
+    // roles to remove
+    notSelected.forEach(async v => {
+      const role = roles.find(role => role.name === rolesMap[v])
+      await interaction.member.roles.remove(role)
+    })
+
+    await interaction.update({ content: `**${interaction.member.displayName}** is now part of team(s): ${interaction.values.join(', ')}.`, components: [] })
   }
 }
 
