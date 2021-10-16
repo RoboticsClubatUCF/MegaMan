@@ -41,8 +41,8 @@ const rolesSet = new Set(Object.keys(rolesMap))
 
 const Team = {
   builder: new SlashCommandBuilder()
-    .setName('team')
-    .setDescription('Join a Team of The Robotics Club.')
+    .setName('teams')
+    .setDescription('Join Teams of The Robotics Club.')
     .setDefaultPermission(false),
   channels: ['bot-cmds'],
   roles: ['Members'],
