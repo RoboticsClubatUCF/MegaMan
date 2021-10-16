@@ -53,6 +53,7 @@ const Team = {
 
     for (const option of memberOptions) {
       const role = roles.find(role => role.name === rolesMap[option.value])
+      option['default'] = false
       if (interaction.member.roles.resolve(role.id))
         option['default'] = true
     }
