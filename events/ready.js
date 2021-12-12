@@ -44,6 +44,8 @@ const Ready = {
     // start jobs
     await StartJobs(guild)
 
+    client.user.setActivity('/help', { type: 'LISTENING' })
+
     console.log(`Ready! Logged in as ${client.user.tag}`)
   }
 }

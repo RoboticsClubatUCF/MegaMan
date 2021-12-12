@@ -1,5 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 
+const PM_LEAD = '539252421961187358' // Kate Majewski
+
 const Pm = {
   builder: new SlashCommandBuilder()
     .setName('pm')
@@ -19,9 +21,10 @@ const Pm = {
             .setDescription('User to remove.')
             .setRequired(true)
         )
-    ),
+    )
+    .setDefaultPermission(false),
   channels: ['pm-committee'],
-  members: ['539252421961187358'], // Kate Majewski
+  members: [PM_LEAD], 
   async execute(interaction) {
     await interaction.deferReply()
 
@@ -31,12 +34,12 @@ const Pm = {
     switch(interaction.options.getSubcommand()) {
     case 'add': {
       await target.roles.add(role)
-      await interaction.editReply(`${target.nickname} has been added to the PM Committee.`)
+      await interaction.editReply(`${target.user.username} has been added to the PM Committee.`)
       break
     }
     case 'remove': {
       await target.roles.remove(role)
-      await interaction.editReply(`${target.nickname} has been removed from the PM Committee.`)
+      await interaction.editReply(`${target.user.username} has been removed from the PM Committee.`)
       break
     }
     default:

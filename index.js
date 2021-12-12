@@ -1,11 +1,10 @@
 import fs from 'fs'
 import { config } from 'dotenv'
-import { Client, Collection, Intents } from 'discord.js'
+import { Collection } from 'discord.js'
+import client from './utils/client.js'
 
 // load envs
 config()
-
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES] })
 
 const setupCommands = async () => {
   client.commands = new Collection()
