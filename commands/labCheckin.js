@@ -9,7 +9,8 @@ const LabCheckin = {
       option.setName('close')
         .setDescription('Hour you are closing in 24hr time.')
         .setRequired(true)
-    ),
+    )
+    .setDefaultPermission(false),
   channels: ['officers'],
   roles: ['Officers'],
   async execute(interaction) {
