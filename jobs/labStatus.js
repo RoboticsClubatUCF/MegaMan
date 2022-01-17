@@ -8,7 +8,7 @@ const channel = client.guilds.cache.get(process.env.GUILD_ID).channels.cache
   .find(chan => chan.name.startsWith('Lab Status:'))
 
 const labStatus = {
-  cronPattern: '*/30 * * * *', // every 30 minutes
+  cronPattern: '*/10 * * * *', // every 10 minutes
   async execute() {
     const sortedStatus = status.data.sort(function(a, b) {
       const keyA = a.close, keyB = b.close
@@ -29,8 +29,10 @@ const labStatus = {
     if (sortedStatus[0].close <= currentHour) // set lab status to close
       await channel.setName('Lab Status: Closed')
     else // set lab status to open till XX:00
-      await channel.setName(`Lab Status: Open till ${sortedStatus[0].close}:00`)
+      await channel.setName(`Lab Status: Open till ${zeroPad(sortedStatus[0].close, 2)}:00`)
   }
 }
+
+const zeroPad = (num, places) => String(num).padStart(places, '0')
 
 export default labStatus
