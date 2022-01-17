@@ -24,6 +24,8 @@ const LabCheckin = {
       id: interaction.user.id,
       close: interaction.options.getInteger('close')
     })
+
+    await interaction.reply(`Set lab status to open till ${close}:00.`)
   }
 }
 
