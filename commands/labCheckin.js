@@ -15,8 +15,8 @@ const LabCheckin = {
   async execute(interaction) {
     const close = interaction.options.getInteger('close')
 
-    if (close < 0 || close > 23) {
-      await interaction.reply({ content: 'Hour must be between 0 and 23.', ephemeral: true })
+    if (close < 1 || close > 23) {
+      await interaction.reply({ content: 'Closing hour must be between 1 and 23.', ephemeral: true })
       return
     }
 
