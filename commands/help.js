@@ -2,7 +2,6 @@ import { SlashCommandBuilder } from '@discordjs/builders'
 import { MessageEmbed } from 'discord.js'
 import getCommands from '../utils/getCommands.js'
 
-
 let commands
 (async () => { commands = await getCommands() })()
 
