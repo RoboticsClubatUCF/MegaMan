@@ -18,6 +18,8 @@ const Help = {
       .setThumbnail('https://i.imgur.com/udziL5c.png')
       .setTimestamp()
     for (const key in commands) {
+      if (commands[key].members) continue
+
       if (commands[key].roles && commands[key].roles.includes('Members'))
         commandsEmbed.addField(key, `${commands[key].builder.description}*`)
       else if (commands[key].roles && commands[key].roles.includes('Officers'))
