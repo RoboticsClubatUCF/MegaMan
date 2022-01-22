@@ -10,21 +10,22 @@ const labTimesEmbed = new MessageEmbed()
     '[3100 Technology Pkwy, Orlando, FL 32826 Partnership II](https://goo.gl/maps/p1Bc37RQEUhHn4U7A)')
   .setThumbnail('https://i.imgur.com/udziL5c.png')
   .addFields(
-    { name: 'Datetime', value: 'Monday 2:30-6:30pm', inline: true },
-    { name: 'Officer', value: 'Alex', inline: true },
-    { name: 'Specialty', value: 'Software', inline: true },
+    { name: 'Datetime', value: 'TBA', inline: true },
+    // { name: 'Datetime', value: 'Monday 2:30-6:30pm', inline: true },
+    // { name: 'Officer', value: 'Alex', inline: true },
+    // { name: 'Specialty', value: 'Software', inline: true },
 
-    { name: 'Datetime', value: 'Tuesday 5:00-9:00pm', inline: true },
-    { name: 'Officer', value: 'Wes, Vijay', inline: true },
-    { name: 'Specialty', value: 'Computer ENG/ROS/SIM/Software', inline: true },
+    // { name: 'Datetime', value: 'Tuesday 5:00-9:00pm', inline: true },
+    // { name: 'Officer', value: 'Wes, Vijay', inline: true },
+    // { name: 'Specialty', value: 'Computer ENG/ROS/SIM/Software', inline: true },
 
-    { name: 'Datetime', value: 'Wednesday 4:30-9:00pm', inline: true },
-    { name: 'Officer', value: 'Dwight', inline: true },
-    { name: 'Specialty', value: 'Mech ENG', inline: true },
+    // { name: 'Datetime', value: 'Wednesday 4:30-9:00pm', inline: true },
+    // { name: 'Officer', value: 'Dwight', inline: true },
+    // { name: 'Specialty', value: 'Mech ENG', inline: true },
 
-    { name: 'Datetime', value: 'Thursday 5:00-9:00pm', inline: true },
-    { name: 'Officer', value: 'Marc, Robert', inline: true },
-    { name: 'Specialty', value: 'Computer ENG/ROS/Mech ENG/Software', inline: true },
+    // { name: 'Datetime', value: 'Thursday 5:00-9:00pm', inline: true },
+    // { name: 'Officer', value: 'Marc, Robert', inline: true },
+    // { name: 'Specialty', value: 'Computer ENG/ROS/Mech ENG/Software', inline: true },
   )
   .setTimestamp()
 
