@@ -8,14 +8,34 @@ const options = [
     value: 'agv'
   },
   {
+    label: 'Alternative Movement',
+    description: 'Alternative Movement Team: Alternative Movement Robot',
+    value: 'alternativemovement'
+  },
+  {
+    label: 'Bipedal',
+    description: 'Bipedal Team: Bipedal Robot',
+    value: 'bipedal'
+  },
+  {
+    label: 'Chess Arm',
+    description: 'Chess Arm Team: Chess Arm',
+    value: 'chessarm'
+  },
+  {
     label: 'Discord',
     description: 'Discord Team: Mega Man',
     value: 'discord'
   },
   {
-    label: 'Line Tracker',
-    description: 'Line Tracker Team: Line Tracker Robots',
-    value: 'linetracker'
+    label: 'Duckietown',
+    description: 'Duckietown Team: Duckietown',
+    value: 'duckietown'
+  },
+  {
+    label: 'Garduino',
+    description: 'Garduino Team: Garduino',
+    value: 'garduino'
   },
   {
     label: 'Pac-Man',
@@ -31,9 +51,13 @@ const options = [
 
 const rolesMap = {
   agv: 'AGV Team',
+  alternativemovement: 'Alternative Movement Team',
+  bipedal: 'Bipedal Team',
+  chessarm: 'Chess Arm Team',
+  duckietown: 'Duckietown Team',
+  garduino: 'Garduino Team',
   spiderbot: 'SpiderBot Team',
   discord: 'Discord Team',
-  linetracker: 'Line Tracking Team',
   pacman: 'Pac-Man Team'
 }
 
