@@ -12,7 +12,7 @@ const paymentEmbed = new MessageEmbed()
   .addFields(
     { name: 'Payment Link', value: url },
     { name: 'Amount', value: '$20.00', inline: true },
-    { name: 'Term', value: 'Fall 2021', inline: true }
+    { name: 'Term', value: 'Spring 2022', inline: true }
   )
   .setTimestamp()
 
