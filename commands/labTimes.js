@@ -23,10 +23,10 @@ const labTimesEmbed = new MessageEmbed()
     { name: 'Specialty', value: 'CS, ME', inline: true },
 
     { name: 'Datetime', value: 'Thursday 5:00-10:00pm', inline: true },
-    { name: 'Officer', value: 'Dwight', inline: true },
+    { name: 'Officer', value: 'Dwight, Noah', inline: true },
     { name: 'Specialty', value: 'ME, EE', inline: true },
 
-    { name: 'Datetime', value: 'Thursday 6:30-10:00pm', inline: true },
+    { name: 'Datetime', value: 'Friday 6:30-10:00pm', inline: true },
     { name: 'Officer', value: 'Wes, Marc, Vijay', inline: true },
     { name: 'Specialty', value: 'CpE, CS', inline: true },
   )
