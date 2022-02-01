@@ -8,9 +8,9 @@ const options = [
     value: 'agv'
   },
   {
-    label: 'Alternative Movement',
-    description: 'Alternative Movement Team: Alternative Movement Robot',
-    value: 'alternativemovement'
+    label: 'Alternative Mobility',
+    description: 'Alternative Mobility Team: Alternative Mobility Robot',
+    value: 'alternativemobility'
   },
   {
     label: 'Bipedal',
@@ -51,7 +51,7 @@ const options = [
 
 const rolesMap = {
   agv: 'AGV Team',
-  alternativemovement: 'Alternative Movement Team',
+  alternativemobility: 'Alternative Mobility Team',
   bipedal: 'Bipedal Team',
   chessarm: 'Chess Arm Team',
   duckietown: 'Duckietown Team',
