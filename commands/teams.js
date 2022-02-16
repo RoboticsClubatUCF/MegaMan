@@ -43,9 +43,9 @@ const options = [
     value: 'pacman'
   },
   {
-    label: 'Spider Bot',
-    description: 'Spider Bot Team: Spider-Bot/Demobot',
-    value: 'spiderbot'
+    label: 'Demobot',
+    description: 'Demobot Bot Team: Demobot/Spider-Bot',
+    value: 'demobot'
   }
 ]
 
@@ -56,7 +56,7 @@ const rolesMap = {
   chessarm: 'Chess Arm Team',
   duckietown: 'Duckietown Team',
   garduino: 'Garduino Team',
-  spiderbot: 'SpiderBot Team',
+  demobot: 'DemoBot Team',
   discord: 'Discord Team',
   pacman: 'Pac-Man Team'
 }
