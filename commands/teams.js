@@ -91,7 +91,7 @@ const Team = {
           .addOptions(memberOptions)
       )
 
-    await interaction.reply({ content: 'Select Team(s) to join.', components: [row] })
+    await interaction.reply({ content: 'Select Team(s) to join.', components: [row], ephemeral: true })
   },
   async onSelect(interaction) {
     const roles = interaction.guild.roles.cache
@@ -110,7 +110,8 @@ const Team = {
       await interaction.member.roles.remove(role)
     })
 
-    await interaction.update({ content: `**${interaction.member.displayName}** is now part of team(s): ${interaction.values.join(', ')}.`, components: [] })
+    await interaction.update({ content: `You is now part of team(s): ${interaction.values.join(', ')}.`, components: [], ephemeral: true })
+    await interaction.channel.send(`**${interaction.member.displayName}** is now part of team(s): ${interaction.values.join(', ')}.`)
   }
 }
 
