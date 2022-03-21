@@ -11,7 +11,7 @@ const AntiSpam = {
           await message.delete()
           await message.author.send('You have sent the same message too frequently, please do not spam.')
           const officersChannel = await message.guild.channels.cache.find(c => c.name === 'officers')
-          await officersChannel.send(`<@${mId}> warned for spamming message \`\`\`${message.content}\`\`\``)
+          await officersChannel.send(`<@${mId}> warned for spamming message \`\`\`${message.content}\`\`\` in <#${message.channelId}>`)
         } else memberMessages[mId].repetition++
       } else {
         memberMessages[mId] = {
