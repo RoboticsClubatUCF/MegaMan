@@ -16,7 +16,9 @@ const Ready = {
     const guildCommands = await guild.commands.fetch()
     const guildRoles = await guild.roles.cache
 
+    // DISCORD CHANGED THIS TO CORRECT PERMISSIONS IN THE SERVER
     // correct command permissions
+    /*
     for (const cmd of guildCommands) {
       const permissions = []
       if (commands[cmd[1].name].roles) {
@@ -40,6 +42,7 @@ const Ready = {
       }
       await cmd[1].permissions.add({ permissions })
     }
+    */
 
     // start jobs
     await StartJobs(guild)
