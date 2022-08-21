@@ -4,61 +4,43 @@ import { MessageActionRow, MessageSelectMenu } from 'discord.js'
 const options = [
   {
     label: 'AGV',
-    description: 'AGV Team: Bowser',
+    description: 'AGV Team',
     value: 'agv'
   },
   {
-    label: 'Alternative Mobility',
-    description: 'Alternative Mobility Team: Alternative Mobility Robot',
-    value: 'alternativemobility'
-  },
-  {
-    label: 'Bipedal',
-    description: 'Bipedal Team: Bipedal Robot',
-    value: 'bipedal'
-  },
-  {
-    label: 'Chess Arm',
-    description: 'Chess Arm Team: Chess Arm',
-    value: 'chessarm'
-  },
-  {
-    label: 'Discord',
-    description: 'Discord Team: Mega Man',
-    value: 'discord'
-  },
-  {
-    label: 'Duckietown',
-    description: 'Duckietown Team: Duckietown',
-    value: 'duckietown'
-  },
-  {
     label: 'Garduino',
-    description: 'Garduino Team: Garduino',
+    description: 'Garduino Team',
     value: 'garduino'
   },
   {
-    label: 'Pac-Man',
-    description: 'Pac-Man Team: Pac-Man',
-    value: 'pacman'
+    label: 'Lunar Knights',
+    description: 'Lunar Knights Team',
+    value: 'lunarknights'
   },
   {
-    label: 'Demobot',
-    description: 'Demobot Bot Team: Demobot/Spider-Bot',
-    value: 'demobot'
+    label: 'Musicbot',
+    description: 'Musicbot Team',
+    value: 'musicbot'
+  },
+  {
+    label: 'Sumobot',
+    description: 'Sumobot Team',
+    value: 'sumobot'
+  },
+  {
+    label: 'Wall Climber',
+    description: 'Wall Climber Team',
+    value: 'wallclimber'
   }
 ]
 
 const rolesMap = {
   agv: 'AGV Team',
-  alternativemobility: 'Alternative Mobility Team',
-  bipedal: 'Bipedal Team',
-  chessarm: 'Chess Arm Team',
-  duckietown: 'Duckietown Team',
   garduino: 'Garduino Team',
-  demobot: 'DemoBot Team',
-  discord: 'Discord Team',
-  pacman: 'Pac-Man Team'
+  lunarknights: 'Lunar Knights Team',
+  musicbot: 'Musicbot Team',
+  sumobot: 'Sumobot Team',
+  wallclimber: 'Wall Climber Team'
 }
 
 const rolesSet = new Set(Object.keys(rolesMap))
