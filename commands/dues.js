@@ -11,7 +11,7 @@ const paymentEmbed = new MessageEmbed()
   .setThumbnail('https://i.imgur.com/udziL5c.png')
   .addFields(
     { name: 'Payment Link', value: url },
-    { name: 'Amount', value: '$20.00', inline: true },
+    { name: 'Amount', value: '$25.00', inline: true },
     { name: 'Term', value: 'Spring 2022', inline: true }
   )
   .setTimestamp()
