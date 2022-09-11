@@ -12,7 +12,7 @@ const labTimesEmbed = new MessageEmbed()
   )
   .setThumbnail("https://i.imgur.com/udziL5c.png")
   .addFields(
-    { name: "Datetime", value: "Monday 5-10PM", inline: true },
+    { name: "Datetime", value: "Monday 6-10PM", inline: true },
     { name: "Officer/TL", value: "Vijay, Tevin", inline: true },
     { name: "Projects", value: "Wall Climber", inline: true },
 
