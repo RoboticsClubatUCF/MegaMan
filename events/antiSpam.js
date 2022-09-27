@@ -3,6 +3,8 @@ const memberMessages = {}
 const AntiSpam = {
   name: 'messageCreate',
   async execute(message) {
+    if (!message.content) return
+
     const mId = message.author.id
 
     if (mId in memberMessages) {
