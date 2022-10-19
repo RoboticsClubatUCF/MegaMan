@@ -11,7 +11,7 @@ const MessageCreate = {
     if (
       message.content.toLowerCase().match(regex) && 
       Object.keys(Channels).find(key => Channels[key].id === message.channel.id) !== 'bulletin-board' && 
-      !m.roles.cache.some(r => r.name === 'Officers')
+      !m.roles.cache.some(r => r.name === 'Officers' || r.name === 'Team Leads')
     ) {
       await message.delete()
       const dm = await message.author.createDM()
