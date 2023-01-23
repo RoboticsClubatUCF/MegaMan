@@ -13,20 +13,20 @@ const labTimesEmbed = new MessageEmbed()
   .setThumbnail("https://i.imgur.com/udziL5c.png")
   .addFields(
     { name: "Datetime", value: "Monday 6-10PM", inline: true },
-    { name: "Officer/TL", value: "Vijay, Tevin", inline: true },
-    { name: "Projects", value: "Wall Climber", inline: true },
+    { name: "Officer/TL", value: "Marc, Dwight, Aidan", inline: true },
+    { name: "Projects", value: "AGV, Lunabotics", inline: true },
 
     { name: "Datetime", value: "Tuesday 6-10PM", inline: true },
-    { name: "Officer/TL", value: "Marc, Dwight, Connor, Peter, Gianni", inline: true },
-    { name: "Projects", value: "AGV", inline: true },
+    { name: "Officer/TL", value: "TBA", inline: true },
+    { name: "Projects", value: "TBA", inline: true },
 
     { name: "Datetime", value: "Wednesday 6-10PM", inline: true },
-    { name: "Officer/TL", value: "Peter, Noah, Ruigi, Gianni", inline: true },
-    { name: "Projects", value: "Musicbot, Sumobot", inline: true },
+    { name: "Officer/TL", value: "Marc, Sam", inline: true },
+    { name: "Projects", value: "Sorting, Garduino", inline: true },
 
     { name: "Datetime", value: "Thursday 6-10PM", inline: true },
-    { name: "Officer/TL", value: "Kate, Aiden, Maddie, Bradley", inline: true },
-    { name: "Projects", value: "Lunar Knights, Garduino", inline: true },
+    { name: "Officer/TL", value: "Tevin", inline: true },
+    { name: "Projects", value: "Wall Climber", inline: true },
 
     { name: "Datetime", value: "Friday 6-10PM", inline: true },
     { name: "Officer/TL", value: "-", inline: true },
