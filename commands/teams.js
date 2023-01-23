@@ -18,8 +18,8 @@ const options = [
     value: 'lunarknights'
   },
   {
-    label: 'Musicbot',
-    description: 'Musicbot Team',
+    label: 'SortingBot',
+    description: 'SortingBot Team',
     value: 'musicbot'
   },
   {
@@ -38,7 +38,7 @@ const rolesMap = {
   agv: 'AGV Team',
   garduino: 'Garduino Team',
   lunarknights: 'Lunar Knights Team',
-  musicbot: 'Musicbot Team',
+  musicbot: 'SortingBot Team',
   sumobot: 'Sumobot Team',
   wallclimber: 'Wall Climber Team'
 }
