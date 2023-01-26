@@ -23,11 +23,6 @@ const options = [
     value: 'sortingbot'
   },
   {
-//    label: 'Sumobot',
-//    description: 'Sumobot Team',
-//    value: 'sumobot'
-  },
-  {
     label: 'Wall Climber',
     description: 'Wall Climber Team',
     value: 'wallclimber'
