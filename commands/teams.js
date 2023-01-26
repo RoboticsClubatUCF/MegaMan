@@ -17,11 +17,11 @@ const options = [
     description: 'Lunar Knights Team',
     value: 'lunarknights'
   },
-/*  {
-    label: 'SortingBot',
+  {
+    label: 'Sorting Bot',
     description: 'SortingBot Team',
     value: 'sortingbot'
-  },*/
+  },
   {
     label: 'Wall Climber',
     description: 'Wall Climber Team',
@@ -33,8 +33,7 @@ const rolesMap = {
   agv: 'AGV Team',
   garduino: 'Garduino Team',
   lunarknights: 'Lunar Knights Team',
-/*  sortingbot: 'SortingBot Team',*/
-//  sumobot: 'Sumobot Team',
+  lunarknights: 'SortingBot Team',
   wallclimber: 'Wall Climber Team'
 }
 
