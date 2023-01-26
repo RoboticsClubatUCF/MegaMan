@@ -33,7 +33,7 @@ const rolesMap = {
   agv: 'AGV Team',
   garduino: 'Garduino Team',
   lunarknights: 'Lunar Knights Team',
-  sortingbot: 'SortingBot Team',
+/*  sortingbot: 'SortingBot Team',*/
 //  sumobot: 'Sumobot Team',
   wallclimber: 'Wall Climber Team'
 }
