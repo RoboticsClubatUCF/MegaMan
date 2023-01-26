@@ -19,7 +19,7 @@ const options = [
   },
   {
     label: 'Sorting Bot',
-    description: 'Sortydfgjmnxjtdfhsdth rsrsdhrtdhh drzxtingBot Team',
+    description: 'Sorting Bot Team',
     value: 'sortingbot'
   },
   {
