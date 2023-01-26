@@ -17,11 +17,11 @@ const options = [
     description: 'Lunar Knights Team',
     value: 'lunarknights'
   },
-  {
+/*  {
     label: 'SortingBot',
     description: 'SortingBot Team',
     value: 'sortingbot'
-  },
+  },*/
   {
     label: 'Wall Climber',
     description: 'Wall Climber Team',
