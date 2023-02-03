@@ -3,7 +3,7 @@ import { MessageActionRow, MessageSelectMenu } from 'discord.js'
 
 const options = [
   {
-    label: 'AGV'
+    label: 'AGV',
     description: 'AGV Team',
     value: 'agv'
   },
