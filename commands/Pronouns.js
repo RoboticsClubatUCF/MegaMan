@@ -4,17 +4,17 @@ import { MessageActionRow, MessageSelectMenu } from 'discord.js'
 const options = [
   {
     label: 'He/Him',
-    description: 'HeHim',
+    description: 'He/Him',
     value: 'hehim'
   },
   {
     label: 'She/Her',
-    description: 'SheHer',
+    description: 'She/Her',
     value: 'sheher'
   },
   {
     label: 'They/Them',
-    description: 'TheyThem',
+    description: 'They/Them',
     value: 'theythem'
   }
 ]
@@ -30,7 +30,7 @@ const rolesSet = new Set(Object.keys(rolesMap))
 const Pronouns = {
   builder: new SlashCommandBuilder()
     .setName('pronouns')
-    .setDescription('Join Teams of The Robotics Club.')
+    .setDescription('Assign yourself a pronoun role!')
     .setDefaultPermission(false),
   channels: ['bot-cmds'],
   roles: ['Members'],
@@ -50,12 +50,12 @@ const Pronouns = {
       .addComponents(
         new MessageSelectMenu()
           .setCustomId('team')
-          .setPlaceholder('Select teams to join.')
+          .setPlaceholder('Select pronouns')
           .setMaxValues(memberOptions.length)
           .addOptions(memberOptions)
       )
 
-    await interaction.reply({ content: 'Select Team(s) to join.', components: [row], ephemeral: true })
+    await interaction.reply({ content: 'Select pronoun(s)', components: [row], ephemeral: true })
   },
   async onSelect(interaction) {
     const roles = interaction.guild.roles.cache
