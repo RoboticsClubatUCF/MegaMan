@@ -3,17 +3,17 @@ import { MessageActionRow, MessageSelectMenu } from 'discord.js'
 
 const options = [
   {
-    label: 'HeHim',
-    description: 'HeHim,
+    label: 'He/Him',
+    description: 'HeHim',
     value: 'hehim'
   },
   {
-    label: 'SheHer',
+    label: 'She/Her',
     description: 'SheHer',
     value: 'sheher'
   },
   {
-    label: 'TheyThem',
+    label: 'They/Them',
     description: 'TheyThem',
     value: 'theythem'
   }
