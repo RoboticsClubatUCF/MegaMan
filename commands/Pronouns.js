@@ -4,17 +4,17 @@ import { MessageActionRow, MessageSelectMenu } from 'discord.js'
 const options = [
   {
     label: 'HeHim',
-    description: 'He/Him,
+    description: 'HeHim,
     value: 'hehim'
   },
   {
     label: 'SheHer',
-    description: 'She/Her',
+    description: 'SheHer',
     value: 'sheher'
   },
   {
     label: 'TheyThem',
-    description: 'They/Them',
+    description: 'TheyThem',
     value: 'theythem'
   }
 ]
