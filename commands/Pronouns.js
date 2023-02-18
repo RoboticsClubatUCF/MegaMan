@@ -20,7 +20,7 @@ const options = [
 ]
 
 const rolesMap = {
-  hehim: 'He/Her',
+  hehim: 'He/Him',
   sheher: 'She/Her',
   theythem: 'They/Them'
 }
