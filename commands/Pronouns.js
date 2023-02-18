@@ -74,7 +74,7 @@ const Pronouns = {
       await interaction.member.roles.remove(role)
     })
 
-//    await interaction.update({ content: `You is now part of team(s): ${interaction.values.join(', ')}.`, components: [], ephemeral: true })
+    await interaction.update({ content: `You now have the role: ${interaction.values.join(', ')}.`, components: [], ephemeral: true })
 //    await interaction.channel.send(`**${interaction.member.displayName}** is now part of team(s): ${interaction.values.join(', ')}.`)
   }
 }
