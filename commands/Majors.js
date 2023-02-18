@@ -38,9 +38,9 @@ const options = [
     value: 'industrialeng'
   },
   {
-    label: 'Enviromental Engineering',
-    description: 'Enviromental Eng',
-    value: 'enviromentaleng'
+    label: 'Environmental Engineering',
+    description: 'Environmental Eng',
+    value: 'environmentaleng'
   },
   {
     label: 'Other Major',
@@ -57,7 +57,7 @@ const rolesMap = {
   computerscience: 'Computer Science',
   civileng: 'Civil Eng',
   industrialeng: 'Industrial Eng',
-  enviromentaleng: 'Enviromental Eng',
+  environmentaleng: 'Environmental Eng',
   othermajor: 'Other Major'
 }
 
