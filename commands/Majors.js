@@ -63,7 +63,7 @@ const rolesMap = {
 
 const rolesSet = new Set(Object.keys(rolesMap))
 
-const Pronouns = {
+const Majors = {
   builder: new SlashCommandBuilder()
     .setName('majors')
     .setDescription('Assign yourself a major role')
