@@ -4,47 +4,47 @@ import { MessageActionRow, MessageSelectMenu } from 'discord.js'
 const options = [
   {
     label: 'Mechanical Engineering',
-    description: 'ME',
+    description: 'Mechanical Eng',
     value: 'mechanicaleng'
   },
   {
     label: 'Aerospace Engineering',
-    description: 'AE',
+    description: 'Aerospace Eng',
     value: 'aerospaceeng'
   },
   {
     label: 'Computer Engineering',
-    description: 'CpE',
+    description: 'Computer Eng',
     value: 'computereng'
   },
   {
     label: 'Electrical Engineering',
-    description: 'EE',
+    description: 'Electrical Eng',
     value: 'electricaleng'
   },
   {
     label: 'Computer Science',
-    description: 'CS',
+    description: 'Computer Science',
     value: 'computerscience'
   },
   {
     label: 'Civil Engineering',
-    description: 'CvE',
+    description: 'Civil Eng',
     value: 'civileng'
   },
   {
     label: 'Industrial Engineering',
-    description: 'IE',
+    description: 'Industrial Eng',
     value: 'industrialeng'
   },
   {
     label: 'Enviromental Engineering',
-    description: 'EvE',
+    description: 'Enviromental Eng',
     value: 'enviromentaleng'
   },
   {
     label: 'Other Major',
-    description: 'N/A',
+    description: 'Other Major',
     value: 'othermajor'
   }
 ]
