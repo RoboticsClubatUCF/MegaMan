@@ -115,4 +115,4 @@ const Pronouns = {
   }
 }
 
-export default Pronouns
+export default Majors
