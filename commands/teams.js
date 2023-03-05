@@ -26,6 +26,11 @@ const options = [
     label: 'Wall Climber',
     description: 'Wall Climber Team',
     value: 'wallclimber'
+  },
+  {
+    label: 'The Outreach Committee',
+    description: 'Outreach Committee',
+    value: 'outreachcommittee'
   }
 ]
 
@@ -34,7 +39,8 @@ const rolesMap = {
   garduino: 'Garduino Team',
   lunarknights: 'Lunar Knights Team',
   sortingbot: 'SortingBot Team',
-  wallclimber: 'Wall Climber Team'
+  wallclimber: 'Wall Climber Team',
+  outreachcommittee: 'Outreach Committee'
 }
 
 const rolesSet = new Set(Object.keys(rolesMap))
