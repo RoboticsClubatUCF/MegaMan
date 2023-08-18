@@ -18,14 +18,19 @@ const options = [
     value: 'lunarknights'
   },
   {
-    label: 'Sorting Bot',
-    description: 'Sorting Bot Team',
-    value: 'sortingbot'
+    label: 'ARM',
+    description: 'Industrial ARM Team',
+    value: 'arm'
   },
   {
-    label: 'Wall Climber',
-    description: 'Wall Climber Team',
-    value: 'wallclimber'
+    label: 'DAWG',
+    description: 'DAWG Team',
+    value: 'dawg'
+  },
+  {
+    label: 'DOG',
+    description: 'DOG Team',
+    value: 'dog'
   },
   {
     label: 'The Outreach Committee',
@@ -38,8 +43,9 @@ const rolesMap = {
   agv: 'AGV Team',
   garduino: 'Garduino Team',
   lunarknights: 'Lunar Knights Team',
-  sortingbot: 'SortingBot Team',
-  wallclimber: 'Wall Climber Team',
+  arm: 'ARM Team',
+  dawg: 'DAWG Team',
+  dog: 'DOG Team',
   outreachcommittee: 'Outreach Committee'
 }
 
