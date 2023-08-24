@@ -12,25 +12,29 @@ const labTimesEmbed = new MessageEmbed()
   )
   .setThumbnail("https://i.imgur.com/udziL5c.png")
   .addFields(
-    { name: "Datetime", value: "Monday 6-10PM", inline: true },
-    { name: "Officer/TL", value: "Sam, Aidan", inline: true },
+    { name: "Datetime", value: "Monday 6PM", inline: true },
+    { name: "Officer/TL", value: "Sam, Lee", inline: true },
     { name: "Projects", value: "Garduino, Lunabotics", inline: true },
 
-    { name: "Datetime", value: "Tuesday 6-10PM", inline: true },
-    { name: "Officer/TL", value: "Peter, Dwight, Gianni", inline: true },
+    { name: "Datetime", value: "Tuesday 6PM", inline: true },
+    { name: "Officer/TL", value: "Gianni, Quinn, Caden, Peter, Dwight", inline: true },
     { name: "Projects", value: "ARM, DAWG, DOG", inline: true },
 
-    { name: "Datetime", value: "Wednesday 6-10PM", inline: true },
-    { name: "Officer/TL", value: "Marc, Dwight", inline: true },
+    { name: "Datetime", value: "Wednesday 6PM", inline: true },
+    { name: "Officer/TL", value: "Marc, Dwight, Peter, Hannah", inline: true },
     { name: "Projects", value: "AGV", inline: true },
 
-    { name: "Datetime", value: "Thursday 6-10PM", inline: true },
+    { name: "Datetime", value: "Thursday 6PM", inline: true },
     { name: "Officer/TL", value: "Sam, Gianni", inline: true },
     { name: "Projects", value: "SUMO", inline: true },
 
-    { name: "Datetime", value: "Friday 6-10PM", inline: true },
+    { name: "Datetime", value: "Friday", inline: true },
     { name: "Officer/TL", value: "-", inline: true },
-    { name: "Projects", value: "(Open Lab)", inline: true }
+    { name: "Projects", value: "(Open Lab)", inline: true },
+
+    { name: "Datetime", value: "Saturday", inline: true },
+    { name: "Officer/TL", value: "Tevin", inline: true },
+    { name: "Projects", value: "BOAT", inline: true }
   )
   .setTimestamp();
 
