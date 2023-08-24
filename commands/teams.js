@@ -18,6 +18,11 @@ const options = [
     value: 'lunarknights'
   },
   {
+    label: 'Sumobots',
+    description: 'Sumobot Teams',
+    value: 'sumobots'
+  },
+  {
     label: 'ARM',
     description: 'Industrial ARM Team',
     value: 'arm'
@@ -43,6 +48,7 @@ const rolesMap = {
   agv: 'AGV Team',
   garduino: 'Garduino Team',
   lunarknights: 'Lunar Knights Team',
+  sumobots: 'Sumobot Teams',
   arm: 'ARM Team',
   dawg: 'DAWG Team',
   tape: 'TapeMeasurer Team',
