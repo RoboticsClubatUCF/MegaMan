@@ -7,7 +7,7 @@ const paymentEmbed = new MessageEmbed()
   .setColor('#FEC904')
   .setURL(url)
   .setAuthor('PayPal', 'https://i.imgur.com/Yg5ZlFc.png', url)
-  .setDescription('Dues are to be paid through our PayPal.  All proceeds are used to fund our projects and lab space.')
+  .setDescription('Dues are to be paid through our Website.  All proceeds are used to fund our projects and lab space.')
   .setThumbnail('https://i.imgur.com/udziL5c.png')
   .addFields(
     { name: 'Payment Link', value: url },
@@ -19,7 +19,7 @@ const paymentEmbed = new MessageEmbed()
 const Dues = {
   builder: new SlashCommandBuilder()
     .setName('dues')
-    .setDescription('Respond with a link to PayPal to pay dues.'),
+    .setDescription('Respond with a link to our website to pay dues.'),
   channels: ['bot-cmds'],
   async execute(interaction) {
     await interaction.reply({ embeds: [paymentEmbed] })
