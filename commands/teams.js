@@ -4,38 +4,43 @@ import { MessageActionRow, MessageSelectMenu } from 'discord.js'
 const options = [
   {
     label: 'AGV',
-    description: 'AGV Team',
+    description: 'The AGV Team',
     value: 'agv'
   },
   {
     label: 'Garduino',
-    description: 'Garduino Team',
+    description: 'The Garduino Team',
     value: 'garduino'
   },
   {
     label: 'Lunar Knights',
-    description: 'Lunar Knights Team',
+    description: 'The Lunar Knights (Lunar Robotics) Team',
     value: 'lunarknights'
   },
   {
     label: 'Sumobots',
-    description: 'Sumobot Teams',
+    description: 'The Sumobot Teams',
     value: 'sumobots'
   },
   {
     label: 'ARM',
-    description: 'Industrial ARM Team',
+    description: 'The Industrial ARM Team',
     value: 'arm'
   },
   {
     label: 'DAWG',
-    description: 'DAWG Team',
+    description: 'The DAWG Team',
     value: 'dawg'
   },
   {
     label: 'TapeMeasurer',
-    description: 'TapeMeasurer Team',
+    description: 'The Tape Measure Team',
     value: 'tape'
+  },
+  {
+    label: 'BOAT',
+    description: 'The Boat Team',
+    value: 'boat'
   },
   {
     label: 'The Outreach Committee',
@@ -52,6 +57,7 @@ const rolesMap = {
   arm: 'ARM Team',
   dawg: 'DAWG Team',
   tape: 'TapeMeasurer Team',
+  boat: 'BOAT Team',
   outreachcommittee: 'Outreach Committee'
 }
 
