@@ -28,9 +28,9 @@ const options = [
     value: 'dawg'
   },
   {
-    label: 'DOG',
-    description: 'DOG Team',
-    value: 'dog'
+    label: 'TapeMeasurer',
+    description: 'TapeMeasurer Team',
+    value: 'tape'
   },
   {
     label: 'The Outreach Committee',
@@ -45,7 +45,7 @@ const rolesMap = {
   lunarknights: 'Lunar Knights Team',
   arm: 'ARM Team',
   dawg: 'DAWG Team',
-  dog: 'DOG Team',
+  tape: 'TapeMeasurer Team',
   outreachcommittee: 'Outreach Committee'
 }
 
