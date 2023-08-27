@@ -7,12 +7,12 @@ const paymentEmbed = new MessageEmbed()
   .setColor('#FEC904')
   .setURL(url)
   .setAuthor('PayPal', 'https://i.imgur.com/Yg5ZlFc.png', url)
-  .setDescription('Dues are to be paid through our Website.  All proceeds are used to fund our projects and lab space.')
+  .setDescription('Dues are to be paid through our Website (or PayPal).  All proceeds are used to fund our projects and lab space.')
   .setThumbnail('https://i.imgur.com/udziL5c.png')
   .addFields(
     { name: 'Payment Link', value: url },
     { name: 'Amount', value: '$25.00', inline: true },
-    { name: 'Term', value: 'Spring 2023', inline: true }
+    { name: 'Term', value: 'Fall 2023', inline: true }
   )
   .setTimestamp()
 
