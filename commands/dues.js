@@ -1,13 +1,13 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { MessageEmbed } from 'discord.js'
 
-const url = 'https://www.paypal.com/paypalme/rcucf'
+const url = 'https://rccf.club/login'
 
 const paymentEmbed = new MessageEmbed()
   .setColor('#FEC904')
   .setURL(url)
   .setAuthor('PayPal', 'https://i.imgur.com/Yg5ZlFc.png', url)
-  .setDescription('Dues are to be paid through our Website (or PayPal).  All proceeds are used to fund our projects and lab space.')
+  .setDescription('Dues are to be paid through our Website, after creating an account.  All proceeds are used to fund our projects and lab space.')
   .setThumbnail('https://i.imgur.com/udziL5c.png')
   .addFields(
     { name: 'Payment Link', value: url },
