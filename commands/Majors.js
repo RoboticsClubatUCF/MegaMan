@@ -1,53 +1,8 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageActionRow, MessageSelectMenu } from "discord.js";
+import { majors } from "../utils/data/majors";
 
-const options = [
-  {
-    label: "Mechanical Engineering",
-    description: "Mechanical Eng",
-    value: "mechanicaleng",
-  },
-  {
-    label: "Aerospace Engineering",
-    description: "Aerospace Eng",
-    value: "aerospaceeng",
-  },
-  {
-    label: "Computer Engineering",
-    description: "Computer Eng",
-    value: "computereng",
-  },
-  {
-    label: "Electrical Engineering",
-    description: "Electrical Eng",
-    value: "electricaleng",
-  },
-  {
-    label: "Computer Science",
-    description: "Computer Science",
-    value: "computerscience",
-  },
-  {
-    label: "Civil Engineering",
-    description: "Civil Eng",
-    value: "civileng",
-  },
-  {
-    label: "Industrial Engineering",
-    description: "Industrial Eng",
-    value: "industrialeng",
-  },
-  {
-    label: "Environmental Engineering",
-    description: "Environmental Eng",
-    value: "environmentaleng",
-  },
-  {
-    label: "Other Major",
-    description: "Other Major",
-    value: "othermajor",
-  },
-];
+
 
 const rolesMap = {
   mechanicaleng: "Mechanical Eng",
@@ -73,7 +28,7 @@ const Majors = {
   async execute(interaction) {
     const roles = interaction.guild.roles.cache;
 
-    const memberOptions = options;
+    const memberOptions = majors;
 
     for (const option of memberOptions) {
       const role = roles.find((role) => role.name === rolesMap[option.value]);
