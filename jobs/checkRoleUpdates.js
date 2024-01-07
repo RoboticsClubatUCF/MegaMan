@@ -7,7 +7,7 @@ const checkForRoleUpdates = {
   async execute() {
     const users = JSON.parse(new TextDecoder().decode((await (await fetch("https://rccf.club/api/members",{})).body.getReader().read()).value))
     /*
-    Data should come in as a {discordProfileName:string}[]
+    Data should come in as a string[]
     */
 
     const guilds = await client.guilds.fetch();
