@@ -1,20 +1,20 @@
-import { config } from 'dotenv'
-import getCommands from '../utils/getCommands.js'
-import StartJobs from '../utils/startJobs.js'
+import { config } from "dotenv";
+import getCommands from "../utils/getCommands.js";
+import StartJobs from "../utils/startJobs.js";
 
-config()
+config();
 
 const Ready = {
-  name: 'ready',
+  name: "ready",
   once: true,
   async execute(client) {
-    if (!client.application?.owner) await client.application?.fetch()
+    if (!client.application?.owner) await client.application?.fetch();
 
-    const guild = await client.guilds.cache.get(process.env.GUILD_ID)
+    const guild = await client.guilds.cache.get(process.env.GUILD_ID);
 
-    const commands = await getCommands()
-    const guildCommands = await guild.commands.fetch()
-    const guildRoles = await guild.roles.cache
+    const commands = await getCommands();
+    const guildCommands = await guild.commands.fetch();
+    const guildRoles = await guild.roles.cache;
 
     // DISCORD CHANGED THIS TO CORRECT PERMISSIONS IN THE SERVER
     // correct command permissions
@@ -45,12 +45,12 @@ const Ready = {
     */
 
     // start jobs
-    await StartJobs(guild)
+    await StartJobs(guild);
 
-    client.user.setActivity('/help', { type: 'LISTENING' })
+    client.user.setActivity("/help", { type: "LISTENING" });
 
-    console.log(`Ready! Logged in as ${client.user.tag}`)
-  }
-}
+    console.log(`Ready! Logged in as ${client.user.tag}`);
+  },
+};
 
-export default Ready
+export default Ready;

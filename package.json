@@ -12,7 +12,8 @@
     "start": "node deployCommands.js && node .",
     "dev": "nodemon .",
     "register": "node deployCommands.js",
-    "lint": "eslint ."
+    "lint": "prettier --plugin-search-dir . --check .",
+    "format": "prettier --plugin-search-dir . --write ."
   },
   "repository": {
     "type": "git",

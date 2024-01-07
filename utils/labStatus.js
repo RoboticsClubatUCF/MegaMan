@@ -1,5 +1,5 @@
 const status = {
-  data: []
-}
+  data: [],
+};
 
-export default status
+export default status;
