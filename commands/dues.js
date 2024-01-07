@@ -1,7 +1,10 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { MessageEmbed } from 'discord.js'
+import semesterYear from '../utils/assist/semesterYear'
 
 const url = 'https://rccf.club/login'
+
+const sy = semesterYear()
 
 const paymentEmbed = new MessageEmbed()
   .setColor('#FEC904')
@@ -12,7 +15,7 @@ const paymentEmbed = new MessageEmbed()
   .addFields(
     { name: 'Payment Link', value: url },
     { name: 'Amount', value: '$25.00', inline: true },
-    { name: 'Term', value: 'Fall 2023', inline: true }
+    { name: 'Term', value: sy.semester + ", " + sy.year, inline: true }
   )
   .setTimestamp()
 
