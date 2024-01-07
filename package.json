@@ -4,7 +4,7 @@
   "description": "Discord Bot for The Robotics Club of Central Florida",
   "type": "module",
   "engines": {
-    "node": "16.8.0"
+    "node": "^20.0.0"
   },
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "start": "node deployCommands.js && node .",
     "dev": "nodemon .",
     "register": "node deployCommands.js",
-    "lint": "eslint ."
+    "lint": "prettier --plugin-search-dir . --check .",
+    "format": "prettier --plugin-search-dir . --write ."
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,8 @@
     "@discordjs/rest": "^0.1.0-canary.0",
     "axios": "^0.21.4",
     "cron": "^1.8.2",
-    "discord-api-types": "^0.22.0",
+    "prettier": "3.1.1",
+    "discord-api-types": "latest",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0"
   },
