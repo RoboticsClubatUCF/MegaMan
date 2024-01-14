@@ -16,13 +16,9 @@ const checkForRoleUpdates = {
     const guilds = await client.guilds.fetch();
     for (const g of guilds) {
       if (g[1].id === '267370501280759810') {
-        console.log("found guild")
         const guild = await g[1].fetch();
-        console.log("fetch guild")
         const role = await guild.roles.fetch("267373066290593794")
-        console.log("fetch role")
         const members = await guild.members.fetch();
-        console.log(members)
         for (const m of members) {
           console.log("checking : " + m[1].user.username)
           if(users.includes(m[1].user.username)){
