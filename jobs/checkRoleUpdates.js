@@ -23,13 +23,12 @@ const checkForRoleUpdates = {
           console.log("checking : " + m[1].user.username)
           if(users.includes(m[1].user.username)){
             console.log("found : " + m[1].user.username)
-            m[1].roles.add(role)
-            console.log("updated : " + m[1].user.username)
+            // await m[1].roles.add(role)
+            console.log("updated : " + (await m[1].roles.add(role)).user.username)
           }else {
             try {
               console.log("trying to remove : " + m[1].user.username)
-              m[1].roles.remove(role)
-              console.log("removed : " + m[1].user.username)
+              console.log("updated : " + (await m[1].roles.remove(role)).user.username)
             }catch (ex){
             }
           }
