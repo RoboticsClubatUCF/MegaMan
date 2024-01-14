@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageActionRow, MessageSelectMenu } from "discord.js";
-import { majors } from "../utils/data/majors";
+import { majors } from "../utils/data/majors.js";
 
 
 
