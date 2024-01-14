@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import client from "../utils/client";
+import client from "../utils/client.js";
 config();
 
 const checkForRoleUpdates = {
@@ -14,9 +14,7 @@ const checkForRoleUpdates = {
     for (const g of guilds) {
       if (g[1].id === '267370501280759810') {
         const guild = await g[1].fetch();
-        const role = await guild.roles.fetch(
-          (role) => role.name === "Members",
-        );
+        const role = await guild.roles.fetch("267373066290593794")
         const members = await guild.members.fetch();
         for (const m of members) {
           if(users.includes(m[1].user.username)){
