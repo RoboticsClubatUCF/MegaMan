@@ -3,20 +3,18 @@ import client from "../utils/client.js";
 config();
 /////////
 const checkForRoleUpdates = {
-  cronPattern: "*/15 * * * *", // every 10 minutes
+  cronPattern: "*/15 * * * *", // every 15 minutes
   async execute() {
     const users = JSON.parse(new TextDecoder().decode((await (await fetch("https://rccf.club/api/members",{})).body.getReader().read()).value))
     /*
-    Data should come in as a {discordProfileName:string}[]
+    Data should come in as a string[]
     */
 
     const guilds = await client.guilds.fetch();
     for (const g of guilds) {
       if (g[1].id === '267370501280759810') {
         const guild = await g[1].fetch();
-        const role = await guild.roles.fetch(
-          (role) => role.name === "Members",
-        );
+        const role = await guild.roles.fetch("267373066290593794")
         const members = await guild.members.fetch();
         for (const m of members) {
           if(users.includes(m[1].user.username)){

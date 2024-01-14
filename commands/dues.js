@@ -1,7 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageEmbed } from "discord.js";
 import semesterYear from "../utils/assist/semesterYear.js";
-///////////
 const url = "https://rccf.club/login";
 
 const sy = semesterYear();
