@@ -20,19 +20,23 @@ const checkForRoleUpdates = {
         const role = await guild.roles.fetch("267373066290593794")
         const members = await guild.members.fetch();
         console.log("members: " + members.size)
+        for(let i = 0; i< users.length; i++){
+          if(members.each(m=>{
+            m.user.username == users[i]
+          })){
+            console.log("user: " + users[i] + " found in server")
+          }
+        }
         for (const m of members) {
-          for (let i = 0; i < users.length; i++) {
-            console.log("check " + users[i] + " against " + m[1].user.username)
-            if(users[i] == m[1].user.username){
-              console.log("found : " + m[1].user.username)
-              // await m[1].roles.add(role)
-              console.log("updated : " + (await m[1].roles.add(role)).user.username)
-            }else {
-              try {
-                console.log("trying to remove : " + m[1].user.username)
-                console.log("updated : " + (await m[1].roles.remove(role)).user.username)
-              }catch (ex){
-              }
+          if(users.includes(m[1].user.username)){
+            console.log("found : " + m[1].user.username)
+            // await m[1].roles.add(role)
+            console.log("updated : " + ( await m[1].roles.add(role)).user.username)
+          }else {
+            try {
+              console.log("trying to remove : " + m[1].user.username)
+              console.log("updated : " + (await  m[1].roles.remove(role)).user.username)
+            }catch (ex){
             }
           }
         }
