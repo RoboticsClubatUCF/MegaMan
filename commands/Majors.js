@@ -2,8 +2,6 @@ import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageActionRow, MessageSelectMenu } from "discord.js";
 import { majors } from "../utils/data/majors.js";
 
-
-
 const rolesMap = {
   mechanicaleng: "Mechanical Eng",
   aerospaceeng: "Aerospace Eng",
