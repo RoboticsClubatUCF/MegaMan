@@ -1,79 +1,32 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageActionRow, MessageSelectMenu } from "discord.js";
-
-const options = [
-  {
-    label: "AGV",
-    description: "The AGV Team",
-    value: "agv",
-  },
-  {
-    label: "Garduino",
-    description: "The Garduino Team",
-    value: "garduino",
-  },
-  {
-    label: "Lunar Knights",
-    description: "The Lunar Knights (Lunar Robotics) Team",
-    value: "lunarknights",
-  },
-  {
-    label: "Sumobots",
-    description: "The Sumobot Teams",
-    value: "sumobots",
-  },
-  {
-    label: "ARM",
-    description: "The Industrial ARM Team",
-    value: "arm",
-  },
-  {
-    label: "DAWG",
-    description: "The DAWG Team",
-    value: "dawg",
-  },
-  {
-    label: "TapeMeasurer",
-    description: "The Tape Measure Team",
-    value: "tape",
-  },
-  {
-    label: "BOAT",
-    description: "The Boat Team",
-    value: "boat",
-  },
-  {
-    label: "The Outreach Committee",
-    description: "Outreach Committee",
-    value: "outreachcommittee",
-  },
-];
+import { majors } from "../utils/data/majors.js";
 
 const rolesMap = {
-  agv: "AGV Team",
-  garduino: "Garduino Team",
-  lunarknights: "Lunar Knights Team",
-  sumobots: "Sumobot Teams",
-  arm: "ARM Team",
-  dawg: "DAWG Team",
-  tape: "TapeMeasurer Team",
-  boat: "BOAT Team",
-  outreachcommittee: "Outreach Committee",
+  mechanicaleng: "Mechanical Eng",
+  aerospaceeng: "Aerospace Eng",
+  computereng: "Computer Eng",
+  electricaleng: "Electrical Eng",
+  computerscience: "Computer Science",
+  civileng: "Civil Eng",
+  industrialeng: "Industrial Eng",
+  environmentaleng: "Environmental Eng",
+  othermajor: "Other Major",
 };
 
 const rolesSet = new Set(Object.keys(rolesMap));
 
-const Team = {
+const Majors = {
   builder: new SlashCommandBuilder()
-    .setName("teams")
-    .setDescription("Join Teams of The Robotics Club.")
+    .setName("majors")
+    .setDescription("Assign yourself a major role")
     .setDefaultPermission(false),
   channels: ["bot-cmds"],
   roles: ["Members"],
   async execute(interaction) {
     const roles = interaction.guild.roles.cache;
 
-    const memberOptions = options;
+    const memberOptions = majors;
 
     for (const option of memberOptions) {
       const role = roles.find((role) => role.name === rolesMap[option.value]);
@@ -84,13 +37,13 @@ const Team = {
     const row = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId("team")
-        .setPlaceholder("Select teams to join.")
+        .setPlaceholder("Select a major")
         .setMaxValues(memberOptions.length)
         .addOptions(memberOptions),
     );
 
     await interaction.reply({
-      content: "Select Team(s) to join.",
+      content: "Select major(s)",
       components: [row],
       ephemeral: true,
     });
@@ -113,16 +66,12 @@ const Team = {
     });
 
     await interaction.update({
-      content: `You is now part of team(s): ${interaction.values.join(", ")}.`,
+      content: `You now have the role: ${interaction.values.join(", ")}.`,
       components: [],
       ephemeral: true,
     });
-    await interaction.channel.send(
-      `**${
-        interaction.member.displayName
-      }** is now part of team(s): ${interaction.values.join(", ")}.`,
-    );
+    //    await interaction.channel.send(`**${interaction.member.displayName}** is now part of team(s): ${interaction.values.join(', ')}.`)
   },
 };
 
-export default Team;
+export default Majors;
