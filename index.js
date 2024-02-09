@@ -2,6 +2,7 @@ import fs from "fs";
 import { config } from "dotenv";
 import { Collection } from "discord.js";
 import client from "./utils/client.js";
+import checkForRoleUpdates from "./jobs/checkRoleUpdates.js";
 
 // load envs
 config();
@@ -37,4 +38,5 @@ const setupEvents = async () => {
 setupCommands();
 setupEvents();
 
-client.login(process.env.TOKEN);
+await client.login(process.env.TOKEN);
+checkForRoleUpdates.execute();
