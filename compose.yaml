@@ -1,0 +1,16 @@
+services:
+  server:
+    container_name: MegaMan
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./
+    #       target: /usr/src/app
+    #       ignore:
+    #         - node_modules/
+    #     - action: rebuild
+    #       path: package.json
