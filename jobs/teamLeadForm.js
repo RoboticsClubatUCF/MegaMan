@@ -1,7 +1,7 @@
 const googleDoc = "https://forms.gle/R6MGxEWSGqVEYxdF9";
 
 const teamLeadForm = {
-  cronPattern: "", // every thursday at 20:00
+  cronPattern: "0 20 * * 4", // every thursday at 20:00
   channel: "teamleads",
   async execute(channel) {
     await channel.send(
