@@ -3,7 +3,7 @@ import client from "../utils/client.js";
 config();
 /////////
 const checkForRoleUpdates = {
-  cronPattern: "*/30 * * * *", // every 30 minutes
+  cronPattern: "*/15 * * * *", // every 15 minutes
   async execute() {
     const users = JSON.parse(
       new TextDecoder().decode(
