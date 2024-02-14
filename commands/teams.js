@@ -8,19 +8,9 @@ const options = [
     value: "agv",
   },
   {
-    label: "Garduino",
-    description: "The Garduino Team",
-    value: "garduino",
-  },
-  {
     label: "Lunar Knights",
     description: "The Lunar Knights (Lunar Robotics) Team",
     value: "lunarknights",
-  },
-  {
-    label: "Sumobots",
-    description: "The Sumobot Teams",
-    value: "sumobots",
   },
   {
     label: "ARM",
@@ -51,9 +41,7 @@ const options = [
 
 const rolesMap = {
   agv: "AGV Team",
-  garduino: "Garduino Team",
   lunarknights: "Lunar Knights Team",
-  sumobots: "Sumobot Teams",
   arm: "ARM Team",
   dawg: "DAWG Team",
   tape: "TapeMeasurer Team",
