@@ -1,6 +1,7 @@
 services:
   server:
     container_name: MegaMan
+    restart: unless-stopped
     build:
       context: .
     environment:
