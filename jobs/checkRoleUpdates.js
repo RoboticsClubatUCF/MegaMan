@@ -5,15 +5,7 @@ config();
 const checkForRoleUpdates = {
   cronPattern: "*/15 * * * *", // every 15 minutes
   async execute() {
-    const users = JSON.parse(
-      new TextDecoder().decode(
-        (
-          await (await fetch("https://rccf.club/api/members", {})).body
-            .getReader()
-            .read()
-        ).value,
-      ),
-    );
+    const users = await (await fetch("https://rccf.club/api/members")).json() 
     /*
     Data should come in as a string[]
     */
