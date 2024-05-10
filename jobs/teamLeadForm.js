@@ -1,4 +1,4 @@
-const googleDoc = "https://forms.gle/R6MGxEWSGqVEYxdF9";
+/*const googleDoc = "https://forms.gle/R6MGxEWSGqVEYxdF9";
 
 const teamLeadForm = {
   cronPattern: "0 20 * * 4", // every thursday at 20:00
@@ -10,4 +10,4 @@ const teamLeadForm = {
   },
 };
 
-export default teamLeadForm;
+export default teamLeadForm;*/
