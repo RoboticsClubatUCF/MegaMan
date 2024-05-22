@@ -37,6 +37,11 @@ const options = [
     description: "Outreach Committee",
     value: "outreachcommittee",
   },
+  {
+    label: "Web Dev",
+    description: "The Web Dev Team",
+    value: "web_dev",
+  },
 ];
 
 const rolesMap = {
@@ -47,6 +52,7 @@ const rolesMap = {
   tape: "TapeMeasurer Team",
   boat: "BOAT Team",
   outreachcommittee: "Outreach Committee",
+  web_dev: "Web Dev",
 };
 
 const rolesSet = new Set(Object.keys(rolesMap));
