@@ -3,24 +3,19 @@ import { MessageActionRow, MessageSelectMenu } from "discord.js";
 
 const options = [
   {
-    label: "AGV",
-    description: "The AGV Team",
-    value: "agv",
-  },
-  {
     label: "Lunar Knights",
     description: "The Lunar Knights (Lunar Robotics) Team",
     value: "lunarknights",
   },
   {
-    label: "ARM",
-    description: "The Industrial ARM Team",
-    value: "arm",
+    label: "Knightmare Robotics",
+    description: "The Knightmare (VEXU) Team",
+    value: "knightmare",
   },
   {
-    label: "DAWG",
-    description: "The DAWG Team",
-    value: "dawg",
+    label: "Sumobots",
+    description: "The sumobots Team",
+    value: "sumo",
   },
   {
     label: "TapeMeasurer",
@@ -28,7 +23,7 @@ const options = [
     value: "tape",
   },
   {
-    label: "BOAT",
+    label: "Pep25",
     description: "The Boat Team",
     value: "boat",
   },
@@ -37,16 +32,22 @@ const options = [
     description: "Outreach Committee",
     value: "outreachcommittee",
   },
+  /*  {
+    label: "DAWG",
+    description: "The DAWG Team",
+    value: "dawg",
+  },
+*/
 ];
 
 const rolesMap = {
-  agv: "AGV Team",
   lunarknights: "Lunar Knights Team",
-  arm: "ARM Team",
-  dawg: "DAWG Team",
+  knightmare: "Knightmare Team",
+  sumo: "Sumobots Team",
   tape: "TapeMeasurer Team",
   boat: "BOAT Team",
   outreachcommittee: "Outreach Committee",
+ //  dawg: "DAWG Team",
 };
 
 const rolesSet = new Set(Object.keys(rolesMap));
@@ -72,7 +73,7 @@ const Team = {
     const row = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId("team")
-        .setPlaceholder("Select teams to join.")
+        .setPlaceholder("Select teams or projects to join.")
         .setMaxValues(memberOptions.length)
         .addOptions(memberOptions),
     );
