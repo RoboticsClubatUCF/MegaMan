@@ -47,7 +47,7 @@ const options = [
 
 const rolesMap = {
   lunarknights: "Lunar Knights Team",
-  knightmare: "Knightmare Team",
+  knightmare: "Knightmare Robotics",
   sumo: "Sumobots",
   tape: "TapeMeasurer Team",
   boat: "BOAT Team",
