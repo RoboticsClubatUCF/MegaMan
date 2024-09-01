@@ -3,7 +3,7 @@ import client from "../utils/client.js";
 config();
 /////////
 const checkForRoleUpdates = {
-  cronPattern: "*/15 * * * *", // every 15 minutes
+  cronPattern: "*/5 * * * *", // every 5 minutes
   async execute() {
     const users = await (await fetch("https://rccf.club/api/members")).json() 
     /*
