@@ -23,7 +23,7 @@ const rolesMap = {
 
   const Team = {
     builder: new SlashCommandBuilder()
-      .setName("Committee's")
+      .setName("committee's")
       .setDescription("Join Committee's of The Robotics Club.")
       .setDefaultPermission(false),
     channels: ["bot-cmds"],
