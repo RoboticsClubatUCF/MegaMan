@@ -27,22 +27,12 @@ const options = [
     description: "The Boat Team",
     value: "boat",
   },
-  {
-    label: "The Outreach Committee",
-    description: "Outreach Committee",
-    value: "outreachcommittee",
-  },
+  
   {
     label: "Web Dev",
     description: "The Web Dev Team",
     value: "web_dev",
   },
-    /*  {
-    label: "DAWG",
-    description: "The DAWG Team",
-    value: "dawg",
-  },
-*/
 ];
 
 const rolesMap = {
@@ -51,9 +41,7 @@ const rolesMap = {
   sumo: "Sumobots",
   tape: "TapeMeasurer Team",
   boat: "BOAT Team",
-  outreachcommittee: "Outreach Committee",
   web_dev: "Web Dev",
-  //  dawg: "DAWG Team",
 };
 
 const rolesSet = new Set(Object.keys(rolesMap));
