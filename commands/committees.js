@@ -23,7 +23,7 @@ const rolesMap = {
 
   const Team = {
     builder: new SlashCommandBuilder()
-      .setName("committee's")
+      .setName("committees")
       .setDescription("Join Committee's of The Robotics Club.")
       .setDefaultPermission(false),
     channels: ["bot-cmds"],
@@ -40,7 +40,7 @@ const rolesMap = {
   
       const row = new MessageActionRow().addComponents(
         new MessageSelectMenu()
-          .setCustomId("Committee's")
+          .setCustomId("committees")
           .setPlaceholder("Select Committee's to join.")
           .setMaxValues(memberOptions.length)
           .addOptions(memberOptions),
