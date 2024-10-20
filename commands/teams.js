@@ -5,33 +5,33 @@ const options = [
   {
     label: "Project S.T.O.R.M.",
     description: "The Surface Terrain Operations Rover for Mars(S.T.O.R.M.) Team",
-    value: "Project S.T.O.R.M.",
+    value: "projectStorm",
   },
   {
     label: "Knightmare Robotics",
     description: "The Knightmare (VEXU) Team",
-    value: "Knightmare Robotics",
+    value: "knightmare",
   },
   {
     label: "Sumobots",
     description: "The sumobots Team",
-    value: "Sumobots",
+    value: "sumo",
   },
   {
     label: "TapeMeasure",
     description: "The Tape Measure Team",
-    value: "TapeMeasure",
+    value: "tape",
   },
   {
     label: "Pep25",
     description: "The Boat Team",
-    value: "Pep25",
+    value: "boat",
   },
   
   {
     label: "Web Dev",
     description: "The Web Dev Team",
-    value: "Web Dev",
+    value: "web_dev",
   },
 ];
 
@@ -95,15 +95,17 @@ const Team = {
       await interaction.member.roles.remove(role);
     });
 
+    const teamsToDisplay = interaction.values.map((teamKey)=> rolesMap[teamKey]).join(", ")
+
     await interaction.update({
-      content: `You is now part of team(s): ${interaction.values.join(", ")}.`,
+      content: `You is now part of team(s): ${teamsToDisplay}.`,
       components: [],
       ephemeral: true,
     });
     await interaction.channel.send(
       `**${
         interaction.member.displayName
-      }** is now part of team(s): ${interaction.values.join(", ")}.`,
+      }** is now part of team(s): ${teamsToDisplay}.`,
     );
   },
 };
