@@ -3,9 +3,9 @@ import { MessageActionRow, MessageSelectMenu } from "discord.js";
 
 const options = [
   {
-    label: "Lunar Knights",
-    description: "The Lunar Knights (Lunar Robotics) Team",
-    value: "lunarknights",
+    label: "Project S.T.O.R.M.",
+    description: "The Project S.T.O.R.M. (Lunar Robotics) Team",
+    value: "projectStorm",
   },
   {
     label: "Knightmare Robotics",
@@ -36,7 +36,7 @@ const options = [
 ];
 
 const rolesMap = {
-  lunarknights: "Lunar Knights Team",
+  projectStorm: ":cloud_lightning: :cloud_with_lightning:Project S.T.O.R.M.",
   knightmare: "Knightmare Robotics",
   sumo: "Sumobots",
   tape: "TapeMeasurer Team",
