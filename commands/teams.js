@@ -36,7 +36,7 @@ const options = [
 ];
 
 const rolesMap = {
-  projectStorm: ":cloud_lightning: :cloud_with_lightning:Project S.T.O.R.M.",
+  projectStorm: "🌩Project S.T.O.R.M.",
   knightmare: "Knightmare Robotics",
   sumo: "Sumobots",
   tape: "TapeMeasurer Team",
