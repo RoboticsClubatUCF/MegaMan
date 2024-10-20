@@ -4,7 +4,7 @@ import { MessageActionRow, MessageSelectMenu } from "discord.js";
 const options = [
   {
     label: "Project S.T.O.R.M.",
-    description: "The Project S.T.O.R.M. (Lunar Robotics) Team",
+    description: "The Surface Terrain Operations Rover for Mars(S.T.O.R.M.) Team",
     value: "projectStorm",
   },
   {
@@ -96,14 +96,14 @@ const Team = {
     });
 
     await interaction.update({
-      content: `You is now part of team(s): ${interaction.values.join(", ")}.`,
+      content: `You is now part of team(s): ${interaction.label.join(", ")}.`,
       components: [],
       ephemeral: true,
     });
     await interaction.channel.send(
       `**${
         interaction.member.displayName
-      }** is now part of team(s): ${interaction.values.join(", ")}.`,
+      }** is now part of team(s): ${interaction.label.join(", ")}.`,
     );
   },
 };
