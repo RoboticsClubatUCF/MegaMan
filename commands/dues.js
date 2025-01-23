@@ -8,7 +8,7 @@ const sy = semesterYear();
 const paymentEmbed = new MessageEmbed()
   .setColor("#FEC904")
   .setURL(url)
-  .setAuthor("Stripe", "https://imgur.com/udziL5c", url)
+  .setAuthor("Stripe", "https://imgur.com/udziL5c.png", url)
   .setDescription(
     "Dues are to be paid through our Website, after creating an account.  All proceeds are used to fund our projects and lab space.",
   )
