@@ -33,6 +33,12 @@ const options = [
     description: "The Web Dev Team",
     value: "web_dev",
   },
+
+  {
+    label: "Day Dream",
+    description: "The Day Dream (VEXU) Team",
+    value: "day_dream",
+  },
 ];
 
 const rolesMap = {
@@ -42,6 +48,7 @@ const rolesMap = {
   tape: "TapeMeasure Team",
   boat: "BOAT Team",
   web_dev: "Web Dev",
+  day_dream: "Day Dream"
 };
 
 const rolesSet = new Set(Object.keys(rolesMap));
