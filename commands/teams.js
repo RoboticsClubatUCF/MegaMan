@@ -61,11 +61,11 @@ function getSemesterStartDates() {
   const year = now.getFullYear();
 
   // Fall is always in same year
-  const fallStart = new Date(year, 7, 26); // Aug 26
+  const fallStart = new Date(year, 7, 18); // Aug 18
 
   // Spring: if we're already past July (i.e. in Fall), next Spring is year+1
   const springYear = now.getMonth() >= 7 ? year + 1 : year;
-  const springStart = new Date(springYear, 0, 6); // Jan 6
+  const springStart = new Date(springYear, 0, 12); // Jan 12
 
   return { fall: fallStart, spring: springStart };
 }
