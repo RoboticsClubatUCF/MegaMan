@@ -27,13 +27,11 @@ const options = [
     description: "The Boat Team",
     value: "boat",
   },
-  
   {
     label: "Web Dev",
     description: "The Web Dev Team",
     value: "web_dev",
   },
-
   {
     label: "Day Dream",
     description: "The Day Dream (VEXU) Team",
@@ -48,10 +46,33 @@ const rolesMap = {
   tape: "TapeMeasure Team",
   boat: "BOAT Team",
   web_dev: "Web Dev",
-  day_dream: "Day Dream"
+  day_dream: "Day Dream",
 };
 
 const rolesSet = new Set(Object.keys(rolesMap));
+
+/**
+ * UCF semester start dates (adjust yearly as needed)
+ * Fall: usually late August
+ * Spring: usually early January
+ */
+const semesterStartDates = {
+  spring: new Date(new Date().getFullYear(), 0, 6),   // Jan 6 this year
+  fall: new Date(new Date().getFullYear(), 7, 26),    // Aug 26 this year
+};
+
+function isWithin3WeeksOfSemesterStart(now = new Date()) {
+  const THREE_WEEKS_MS = 21 * 24 * 60 * 60 * 1000;
+
+  for (const sem of Object.values(semesterStartDates)) {
+    const start = new Date(sem);
+    const diff = now - start;
+    if (diff >= 0 && diff <= THREE_WEEKS_MS) {
+      return true; // inside 3-week open window
+    }
+  }
+  return false;
+}
 
 const Team = {
   builder: new SlashCommandBuilder()
@@ -59,10 +80,30 @@ const Team = {
     .setDescription("Join Teams of The Robotics Club.")
     .setDefaultPermission(false),
   channels: ["bot-cmds"],
-  roles: ["Members"],
+  roles: [], // we dynamically check role requirement now
   async execute(interaction) {
-    const roles = interaction.guild.roles.cache;
+    const now = new Date();
 
+    // only allow free access if inside 3 weeks after semester start
+    // otherwise require "Members" role
+    if (!isWithin3WeeksOfSemesterStart(now)) {
+      const memberRole = interaction.guild.roles.cache.find(r => r.name === "Members");
+      if (!interaction.member.roles.cache.has(memberRole?.id)) {
+        return await interaction.reply({
+          content: "❌ You must have the `Members` role to use this command after the 3-week open period.",
+          ephemeral: true,
+        });
+      }
+    }
+
+    if (!this.channels.includes(interaction.channel.name)) {
+      return await interaction.reply({
+        content: "❌ This command can only be used in #bot-cmds.",
+        ephemeral: true,
+      });
+    }
+
+    const roles = interaction.guild.roles.cache;
     const memberOptions = options;
 
     for (const option of memberOptions) {
@@ -102,17 +143,15 @@ const Team = {
       await interaction.member.roles.remove(role);
     });
 
-    const teamsToDisplay = interaction.values.map((teamKey)=> rolesMap[teamKey]).join(", ")
+    const teamsToDisplay = interaction.values.map((teamKey) => rolesMap[teamKey]).join(", ");
 
     await interaction.update({
-      content: `You is now part of team(s): ${teamsToDisplay}.`,
+      content: `✅ You are now part of team(s): ${teamsToDisplay}.`,
       components: [],
       ephemeral: true,
     });
     await interaction.channel.send(
-      `**${
-        interaction.member.displayName
-      }** is now part of team(s): ${teamsToDisplay}.`,
+      `**${interaction.member.displayName}** is now part of team(s): ${teamsToDisplay}.`,
     );
   },
 };
