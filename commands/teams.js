@@ -52,23 +52,33 @@ const rolesMap = {
 const rolesSet = new Set(Object.keys(rolesMap));
 
 /**
- * UCF semester start dates (adjust yearly as needed)
- * Fall: usually late August
- * Spring: usually early January
+ * Semester dates (approximate, adjust if UCF changes official start dates)
+ * - Spring ~ early January (Jan 6 used here)
+ * - Fall ~ late August (Aug 26 used here)
  */
-const semesterStartDates = {
-  spring: new Date(new Date().getFullYear(), 0, 6),   // Jan 6 this year
-  fall: new Date(new Date().getFullYear(), 7, 26),    // Aug 26 this year
-};
+function getSemesterStartDates() {
+  const now = new Date();
+  const year = now.getFullYear();
+
+  // Fall is always in same year
+  const fallStart = new Date(year, 7, 26); // Aug 26
+
+  // Spring: if we're already past July (i.e. in Fall), next Spring is year+1
+  const springYear = now.getMonth() >= 7 ? year + 1 : year;
+  const springStart = new Date(springYear, 0, 6); // Jan 6
+
+  return { fall: fallStart, spring: springStart };
+}
 
 function isWithin3WeeksOfSemesterStart(now = new Date()) {
+  const { fall, spring } = getSemesterStartDates();
   const THREE_WEEKS_MS = 21 * 24 * 60 * 60 * 1000;
 
-  for (const sem of Object.values(semesterStartDates)) {
+  for (const sem of [fall, spring]) {
     const start = new Date(sem);
     const diff = now - start;
     if (diff >= 0 && diff <= THREE_WEEKS_MS) {
-      return true; // inside 3-week open window
+      return true;
     }
   }
   return false;
@@ -80,22 +90,22 @@ const Team = {
     .setDescription("Join Teams of The Robotics Club.")
     .setDefaultPermission(false),
   channels: ["bot-cmds"],
-  roles: [], // we dynamically check role requirement now
+  roles: [], // handled dynamically
   async execute(interaction) {
     const now = new Date();
 
-    // only allow free access if inside 3 weeks after semester start
-    // otherwise require "Members" role
+    // Enforce "Members" role only outside the 3-week open period
     if (!isWithin3WeeksOfSemesterStart(now)) {
       const memberRole = interaction.guild.roles.cache.find(r => r.name === "Members");
       if (!interaction.member.roles.cache.has(memberRole?.id)) {
         return await interaction.reply({
-          content: "❌ You must have the `Members` role to use this command after the 3-week open period.",
+          content: "❌ You must have the `Members` role to use this command outside of the 3-week open signup period.",
           ephemeral: true,
         });
       }
     }
 
+    // Only usable in allowed channels
     if (!this.channels.includes(interaction.channel.name)) {
       return await interaction.reply({
         content: "❌ This command can only be used in #bot-cmds.",
@@ -134,13 +144,13 @@ const Team = {
     // roles to add
     valueSet.forEach(async (v) => {
       const role = roles.find((role) => role.name === rolesMap[v]);
-      await interaction.member.roles.add(role);
+      if (role) await interaction.member.roles.add(role);
     });
 
     // roles to remove
     notSelected.forEach(async (v) => {
       const role = roles.find((role) => role.name === rolesMap[v]);
-      await interaction.member.roles.remove(role);
+      if (role) await interaction.member.roles.remove(role);
     });
 
     const teamsToDisplay = interaction.values.map((teamKey) => rolesMap[teamKey]).join(", ");
