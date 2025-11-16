@@ -18,12 +18,10 @@ const StartElection = {
         .setRequired(true))
     .setDefaultPermission(false),
   
-  // Restriction configuration
-  channels: [], // Using ID-based check instead
+  channels: [],
   roles: ["Officers"],
   
   async execute(interaction) {
-    // Enforce channel ID check
     if (interaction.channel.id !== VOTING_CHANNEL_ID) {
       return await interaction.reply({
         content: `❌ This command can only be used in the designated voting channel.`,
@@ -31,7 +29,6 @@ const StartElection = {
       });
     }
 
-    // Check for existing active vote
     if (voteManager.hasActiveVote(VOTING_CHANNEL_ID)) {
       return await interaction.reply({
         content: "❌ There's already an active election. Use `/endelection` to end it first.",
@@ -39,7 +36,6 @@ const StartElection = {
       });
     }
 
-    // Parse and validate inputs
     const position = interaction.options.getString("position");
     const candidatesString = interaction.options.getString("candidates");
     const candidates = candidatesString.split(',')
@@ -60,7 +56,7 @@ const StartElection = {
       });
     }
 
-    // Create the election
+    // Create vote data first (without messageId)
     const voteData = voteManager.createVote(VOTING_CHANNEL_ID, position, candidates);
 
     // Build the select menu
@@ -76,17 +72,19 @@ const StartElection = {
 
     const row = new MessageActionRow().addComponents(selectMenu);
 
-    // Send the election interface
-    await interaction.reply({
+    // Send the election message and capture it
+    const message = await interaction.reply({
       content: `🗳️ **ELECTION FOR: ${position.toUpperCase()}**\n\n**Candidates:** ${candidates.join(", ")}\n\n*Select your choice from the menu below. Your vote is anonymous and results are hidden until the election ends.*`,
       components: [row],
       ephemeral: false,
+      fetchReply: true // Get the sent message object
     });
+
+    // Update the vote data with the message ID
+    voteData.messageId = message.id;
   },
 
-  // Handler for when users select a candidate
   async onSelect(interaction) {
-    // Verify this is the voting channel
     if (interaction.channel.id !== VOTING_CHANNEL_ID) {
       return await interaction.reply({
         content: "❌ Voting is not allowed in this channel.",
@@ -94,7 +92,6 @@ const StartElection = {
       });
     }
 
-    // Check if user has Member role
     const memberRole = interaction.guild.roles.cache.find(r => r.name === "Members");
     if (!memberRole) {
       return await interaction.reply({
@@ -121,7 +118,6 @@ const StartElection = {
     const selectedValue = interaction.values[0];
     const userId = interaction.user.id;
 
-    // Record the vote (handles changing votes)
     const success = voteManager.recordVote(VOTING_CHANNEL_ID, userId, selectedValue);
     if (!success) {
       return await interaction.reply({
@@ -130,7 +126,6 @@ const StartElection = {
       });
     }
 
-    // Confirm to the user
     const selectedLabel = voteData.options.find(opt => opt.value === selectedValue).label;
     await interaction.reply({
       content: `✅ Your vote for "${selectedLabel}" has been recorded anonymously. You can change your vote by selecting a different candidate before the election ends.`,

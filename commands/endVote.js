@@ -10,12 +10,10 @@ const EndElection = {
     .setDescription("End the current election and declare the winner.")
     .setDefaultPermission(false),
   
-  // Restriction configuration
   channels: [],
   roles: ["Officers"],
   
   async execute(interaction) {
-    // Enforce channel ID check
     if (interaction.channel.id !== VOTING_CHANNEL_ID) {
       return await interaction.reply({
         content: `❌ This command can only be used in the designated voting channel.`,
@@ -23,7 +21,6 @@ const EndElection = {
       });
     }
 
-    // Verify there's an active election
     if (!voteManager.hasActiveVote(VOTING_CHANNEL_ID)) {
       return await interaction.reply({
         content: "❌ No active election to end.",
@@ -31,8 +28,10 @@ const EndElection = {
       });
     }
 
-    // Get and end the election
     const results = voteManager.endVote(VOTING_CHANNEL_ID);
+    
+    // Get the stored message ID
+    const messageId = results.messageId;
 
     // Find winner(s)
     const maxVotes = Math.max(...results.results.map(r => r.count));
@@ -45,7 +44,7 @@ const EndElection = {
       .setDescription(`**Position:** ${results.question}\n**Total Votes Cast:** ${results.totalVotes}`)
       .setTimestamp();
 
-    // Add results for each candidate with a visual bar
+    // Add results for each candidate
     results.results.forEach(candidate => {
       const barLength = Math.round(parseFloat(candidate.percentage) / 5);
       const bar = barLength > 0 ? "█".repeat(barLength) : "░";
@@ -63,8 +62,25 @@ const EndElection = {
     
     resultsEmbed.addField("\u200B", winnerText);
 
-    // Send results publicly
-    await interaction.reply({ embeds: [resultsEmbed] });
+    // Try to edit the original election message
+    try {
+      const originalMessage = await interaction.channel.messages.fetch(messageId);
+      await originalMessage.edit({
+        content: null, // Remove original content
+        embeds: [resultsEmbed],
+        components: [] // Remove select menu
+      });
+      
+      // Confirm to the officer (ephemeral)
+      await interaction.reply({
+        content: "✅ Election ended successfully. Results have been updated in the original message.",
+        ephemeral: true
+      });
+    } catch (error) {
+      console.error("Could not edit original message:", error);
+      // Fallback: send new message
+      await interaction.reply({ embeds: [resultsEmbed] });
+    }
   },
 };
 

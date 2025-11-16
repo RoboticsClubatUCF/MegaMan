@@ -1,10 +1,9 @@
 class VoteManager {
   constructor() {
-    // channelId -> { question, options: [{label, value, count}], votes: Map<userId, optionValue> }
     this.activeVotes = new Map();
   }
 
-  createVote(channelId, question, options) {
+  createVote(channelId, question, options, messageId = null) {
     const voteData = {
       question,
       options: options.map(opt => ({
@@ -12,7 +11,8 @@ class VoteManager {
         value: opt.toLowerCase().replace(/\s+/g, '_'),
         count: 0
       })),
-      votes: new Map() // userId -> optionValue
+      votes: new Map(),
+      messageId // Store the message ID for later editing
     };
     this.activeVotes.set(channelId, voteData);
     return voteData;
@@ -22,14 +22,12 @@ class VoteManager {
     const voteData = this.activeVotes.get(channelId);
     if (!voteData) return false;
 
-    // If user already voted, remove their previous vote
     if (voteData.votes.has(userId)) {
       const prevOptionValue = voteData.votes.get(userId);
       const prevOption = voteData.options.find(opt => opt.value === prevOptionValue);
       if (prevOption) prevOption.count--;
     }
 
-    // Record/Update the vote
     voteData.votes.set(userId, optionValue);
     const option = voteData.options.find(opt => opt.value === optionValue);
     if (option) option.count++;
@@ -52,7 +50,8 @@ class VoteManager {
     return {
       question: voteData.question,
       totalVotes,
-      results
+      results,
+      messageId: voteData.messageId // Include messageId for editing
     };
   }
 
