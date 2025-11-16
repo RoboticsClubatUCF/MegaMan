@@ -1,7 +1,3 @@
-/**
- * VoteManager - In-memory storage for active votes
- * Note: For production use, consider using a database to persist votes across bot restarts
- */
 class VoteManager {
   constructor() {
     // channelId -> { question, options: [{label, value, count}], votes: Map<userId, optionValue> }

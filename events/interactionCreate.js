@@ -6,15 +6,14 @@ const InteractionCreate = {
       const command = interaction.client.commands.get(interaction.commandName);
       if (!command) return;
 
-      // check if valid channel
+      // check if valid channel (only if channels array exists AND has items)
       if (
         command.channels &&
+        command.channels.length > 0 &&
         !command.channels.includes(interaction.channel.name)
       ) {
         await interaction.reply({
-          content: `You can only use this command in ${command.channels.join(
-            ", ",
-          )}.`,
+          content: `❌ This command can only be used in #${command.channels.join(', #')}.`,
           ephemeral: true,
         });
         return;
