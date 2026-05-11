@@ -6,7 +6,7 @@ export default () => {
       year: currYear,
       semester: "Spring",
     };
-  } else if (currMonth > 4 && currMonth < 7) {
+  } else if (currMonth >= 4 && currMonth < 7) {
     return {
       year: currYear,
       semester: "Summer",

@@ -16,7 +16,13 @@ const StartJobs = async (guild) => {
     );
     const job = new CronJob(
       event.default.cronPattern,
-      async () => await event.default.execute(channel),
+      async () => {
+        try {
+          await event.default.execute(channel);
+        } catch (err) {
+          console.error(`Error in job ${file}:`, err);
+        }
+      },
       null,
       false,
       "America/New_York",

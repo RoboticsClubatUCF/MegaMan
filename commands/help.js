@@ -1,11 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { MessageEmbed } from "discord.js";
-import getCommands from "../utils/getCommands.js";
-
-let commands;
-(async () => {
-  commands = await getCommands();
-})();
 
 const Help = {
   builder: new SlashCommandBuilder()
@@ -21,14 +15,15 @@ const Help = {
       )
       .setThumbnail("https://i.imgur.com/udziL5c.png")
       .setTimestamp();
-    for (const key in commands) {
-      if (commands[key].members) continue;
 
-      if (commands[key].roles && commands[key].roles.includes("Members"))
-        commandsEmbed.addField(key, `${commands[key].builder.description}*`);
-      else if (commands[key].roles && commands[key].roles.includes("Officers"))
-        commandsEmbed.addField(key, `${commands[key].builder.description}**`);
-      else commandsEmbed.addField(key, commands[key].builder.description);
+    for (const [key, cmd] of interaction.client.commands) {
+      if (cmd.members) continue;
+
+      if (cmd.roles && cmd.roles.includes("Members"))
+        commandsEmbed.addField(key, `${cmd.builder.description}*`);
+      else if (cmd.roles && cmd.roles.includes("Officers"))
+        commandsEmbed.addField(key, `${cmd.builder.description}**`);
+      else commandsEmbed.addField(key, cmd.builder.description);
     }
 
     await interaction.reply({ embeds: [commandsEmbed] });
